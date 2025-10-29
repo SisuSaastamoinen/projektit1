@@ -5,15 +5,16 @@ let timesGuessed = 0;
 let wins = 0;
 let losses = 0;
 let gameInfo = document.getElementById("gameInfo");
+// ylläolevat muuttujat pelifunktion scopen ulkopuolella
 
-function guess(event) {
+function playGame(event) {
     const userGuess = parseInt(event.target.value);
     if (timesGuessed === GAME_END) {
-        return;
+        return; // jos peli on jo loppunut, niin ei muuteta gameInfoa, returnataan suoraan
     }
     if (timesGuessed === maxGuesses) {
         gameInfo.innerHTML = `Peli ohi! Oikea numero oli ${correct}. Aloita uusi peli.`;
-        return;
+        return; // jos arvausmäärä on täynnä, ei sallita uusia arvauksia, returnataan taas
     }
     timesGuessed++;
     document.getElementById("arvaukset").innerHTML = `Arvausten lukumäärä: ${timesGuessed}`;
@@ -24,8 +25,8 @@ function guess(event) {
         wins++;
         document.getElementById("voitot").innerHTML = `Voitot: ${wins}`;
         gameInfo.innerHTML = `Arvasit oikein! Oikea numero oli ${correct}.`;
-        timesGuessed = GAME_END; 
-        return;
+        timesGuessed = GAME_END; // asetetaan peli päättyneeksi 
+        return; // return pois funktiosta jälleen kerran
     } else {
         if (timesGuessed === maxGuesses) {
             losses++;
