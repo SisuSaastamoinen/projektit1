@@ -36,7 +36,7 @@ function validateForm() {
 }
 function emailIsValid(email) { return/^[^\s@]+@[^\s@]+$/.test(email)}
 
-function validateForm() {
+function validateForm1() {
     const emailInput = document.getElementById("email");
     const email = emailInput.value;
   
