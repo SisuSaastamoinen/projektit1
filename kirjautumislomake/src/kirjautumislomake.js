@@ -9,6 +9,12 @@ function validateForm() {
         alert("Salasana ei voi olla tyhjä.")
         return; 
     }
+    const emailInput= document.getElementById("email").value;
+    if (!emailIsValid(emailInput)) {
+        alert("Anna kelvollinen sähköpostiosoite.");
+        return;
+    }
+
     let a1 = document.getElementById("userOptionRadio1a").checked;
     let a2 = document.getElementById("userOptionRadio2a").checked;
     let a3 = document.getElementById("userOptionRadio3a").checked;
@@ -35,15 +41,3 @@ function validateForm() {
     }
 }
 function emailIsValid(email) { return/^[^\s@]+@[^\s@]+$/.test(email)}
-
-function validateForm1() {
-    const emailInput = document.getElementById("email");
-    const email = emailInput.value;
-  
-    if (!emailIsValid(email)) {
-      alert("Anna kelvollinen sähköpostiosoite.");
-      emailInput.focus();
-      return false;
-    }
-    return true;
-}
