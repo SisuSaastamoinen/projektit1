@@ -11,8 +11,8 @@
     <form onsubmit="return false">
         <label>Valitse luku alla olevista painikkeista</label><br>
         <br>
-        <p id="voitot">Voitot: </p>
-        <p id="tappiot">Tappiot:</p>
+        <p id="voitot" value="0">Voitot: 0</p>
+        <p id="tappiot" value="0">Tappiot: 0</p>
         <button onclick="guess(event)" class="nappi" name="button" value="1">1</button>
         <button onclick="guess(event)" class="nappi" name="button" value="2">2</button>
         <button onclick="guess(event)" class="nappi" name="button" value="3">3</button>
@@ -23,11 +23,10 @@
         <button onclick="guess(event)" class="nappi" name="button" value="8">8</button>
         <button onclick="guess(event)" class="nappi" name="button" value="9">9</button>
         <button onclick="guess(event)" class="nappi" name="button" value="10">10</button><br>
-        <label>Arvausten lukumääerä</label><br>
+        <p id="arvaukset">Arvausten lukumäärä: </p>
+        <p id="arvatutNumerot">Arvatut numerot: </p>
         <br>
-        <label>Arvatut numerot</label><br>
-        <br>
-        <button onclick="" id="uusiPeli" onsubmit="return false">Uusi peli?</button>
+        <button onclick="resetGame()" id="uusiPeli">Uusi peli?</button>
     </form>
 </body>
 </html>
