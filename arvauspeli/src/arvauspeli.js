@@ -45,3 +45,20 @@ function resetGame() {
     document.getElementById("arvaukset").innerHTML = `Arvausten lukumäärä: ${timesGuessed}`;
     document.getElementById("arvatutNumerot").innerHTML = "Arvatut numerot: ";
 }
+
+function makeButtons() { // tehdään napit dynaamisesti, jottei html-koodissa olisi niin paljon toistoa
+    const buttonWrapper = document.getElementById("buttonWrapper");
+    for (let i = 1; i <= 10; i++) {
+        if (i == 6) {
+            const br = document.createElement("br");
+            buttonWrapper.appendChild(br);
+        }
+        const button = document.createElement("button");
+        button.innerText = i;
+        button.value = i;
+        button.onclick = playGame;
+        button.className = "nappi";
+        buttonWrapper.appendChild(button);
+    }
+}
+makeButtons();
