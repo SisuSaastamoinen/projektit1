@@ -8,11 +8,14 @@
 </head>
 <body>
     <div id="formWrapper">
-        <form id="loginForm">
-            <h2 id="title">Kirjautumislomake</h2>
+        <h1 id="otsikko">Kirjautumislomake</h1>
+        <p id="kuvaus">Täytä tähän tietosi:</p>
+        <form id="kyselylomake">
             <div id="userNameWrapper">
                 <label for="username"><b>Nimi:</b></label><br>
-                <input type="text" id="username" name="username" required><br>
+                <input type="text" id="nimi" name="nimi" required><br>
+                <label for="email"><b>Sähköposti:</b></label><br>
+                <input type="text" id="email" name="email" required><br>
                 <label for="password"><b>Salasana:</b></label><br>
                 <input type="password" id="password" name="password" required><br>
             </div>
