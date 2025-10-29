@@ -23,4 +23,14 @@ function validateForm() {
         alert("Täytä mielipide.")
         return false;
     }
+    let q = document.forms["parannusehdotukset"].value;
+    if (q == "") {
+        alert("Kirjoitsa parannusehdotus.")
+        return false;
+    }
+    let w = document.forms["lempiaine"].value;
+    if (w == "eiValintaa") {
+        alert("Valitse lempi aine.")
+        return false;
+    }
 }
