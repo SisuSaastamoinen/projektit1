@@ -12,9 +12,9 @@
         <p id="kuvaus">Täytä tähän tietosi:</p>
         <form id="kyselylomake">
             <div id="userNameWrapper">
-                <label for="username"><b>Nimi:</b></label><br>
-                <input type="text" id="nimi" name="nimi" required><br>
-                <label for="email"><b>Sähköposti:</b></label><br>
+                <label for="nimisyotto"><b>Nimi:</b></label><br>
+                <input type="text" id="nimi" name="nimi" minlength="3" value="Kirjoita nimesi" required><br>
+                <label for="emailsyotto"><b>Sähköposti:</b></label><br>
                 <input type="text" id="email" name="email" required><br>
                 <label for="password"><b>Salasana:</b></label><br>
                 <input type="password" id="password" name="password" required><br>
@@ -40,8 +40,8 @@
                 <option value="media">Media</option>
                 <option value="muuAine">Muu aine</option>
             </select><br><br>
-            <label for="age"><b>Ikä:</b></label><br>
-            <input type="number" id="ika" name="ika" min="15" max="99" required><br>
+            <label for="ikasyotto"><b>Ikä:</b></label><br>
+            <input type="number" id="ika" name="ika" min="15" max="99" value="Valitse ikäsi" required><br>
             <h3>Kerro, miten kehittäisit sivujani</h3>
             <textarea id="parannusehdotukset" rows="4" cols="30" placeholder="Kirjoita parannusehdotuksesi tähän..."></textarea><br><br>
             <button onclick="validateForm()">Lähetä</button>
