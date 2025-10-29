@@ -10,7 +10,6 @@ function validateForm() {
         return; 
     }
     const emailInput= document.getElementById("email").value;
-    console.log(emailInput);
     if (!emailIsValid(emailInput)) {
         alert("Anna kelvollinen sähköpostiosoite.");
         return;
