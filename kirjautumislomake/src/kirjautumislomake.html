@@ -13,11 +13,11 @@
         <form id="kyselylomake">
             <div id="userNameWrapper">
                 <label for="nimisyotto"><b>Nimi:</b></label><br>
-                <input type="text" id="nimi" name="nimi" minlength="3" value="Kirjoita nimesi" required><br>
+                <input type="text" id="nimi" name="nimi" minlength="3" placeholder="Kirjoita nimesi" required><br>
                 <label for="emailsyotto"><b>Sähköposti:</b></label><br>
-                <input type="text" id="email" name="email" required><br>
+                <input type="text" id="email" name="email" placeholder="Kirjoita sähköpostisi" required><br>
                 <label for="password"><b>Salasana:</b></label><br>
-                <input type="password" id="password" name="password" required><br>
+                <input type="password" id="password" name="password" placeholder="Kirjoita salasanasi" required><br>
             </div>
             <div id="radioWrapper">
                 <h3>Tätä tietoa ei näytetä käyttäjälle<br>Millainen koneen käyttäjä olet?</h3>
@@ -41,7 +41,7 @@
                 <option value="muuAine">Muu aine</option>
             </select><br><br>
             <label for="ikasyotto"><b>Ikä:</b></label><br>
-            <input type="number" id="ika" name="ika" min="15" max="99" value="Valitse ikäsi" required><br>
+            <input type="number" id="ika" name="ika" min="15" max="99" placeholder="Ikäsi" required><br>
             <h3>Kerro, miten kehittäisit sivujani</h3>
             <textarea id="parannusehdotukset" rows="4" cols="30" placeholder="Kirjoita parannusehdotuksesi tähän..."></textarea><br><br>
             <button onclick="validateForm()" onclick="return validateForm1()">Lähetä</button>
