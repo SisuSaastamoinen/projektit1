@@ -9,13 +9,15 @@ function guess(event) {
     if (userGuess == correct) {
         alert("Voitit pelin!");
         wins++;
-    } else {
+        document.getElementById("voitot").innerText = "Voitot: " + wins;
+        return;
+    } else if (timesGuessed < 3) {
         guesses.push(userGuess);
         timesGuessed++;
         alert("Väärin! Yritä uudestaan.");
+    } else {
+        alert("Hävisit pelin! Oikea numero oli " + correct + ".");
     } 
-    guesses.push(userGuess);
-    document.getElementById("voitot").innerText = "Voitot: " + wins;
+    losses++;
     document.getElementById("tappiot").innerText = "Tappiot: " + losses;
-    document.getElementById("arvatutNumerot").innerText = "Arvatut numerot: " + guesses.join(", ");
 }
