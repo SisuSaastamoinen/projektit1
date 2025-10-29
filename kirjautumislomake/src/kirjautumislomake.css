@@ -1,0 +1,12 @@
+form {
+    border: 2px solid #000000;
+    padding: 20px;
+    width: 300px;
+    background-color: #f2f2f2;
+}
+
+#title {
+    text-align: left;
+    color: #333333;
+    font-family:  'Comic Sans MS', cursive, sans-serif;
+}
