@@ -3,6 +3,7 @@ form {
     padding: 20px;
     width: 300px;
     background-color: #f2f2f2;
+    border-radius: 5px;
 }
 
 #title {
@@ -10,3 +11,10 @@ form {
     color: #333333;
     font-family:  'Comic Sans MS', cursive, sans-serif;
 }
+#userNameWrapper, #radioWrapper {
+    margin-bottom: 15px;
+    background-color: lightgray;
+    padding: 10px;
+    border: #000000 2px solid;
+    border-radius: 5px;
+}   
