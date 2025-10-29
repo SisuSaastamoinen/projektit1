@@ -5,6 +5,8 @@ let timesGuessed = 0;
 let wins = 0;
 let losses = 0;
 let gameInfo = document.getElementById("gameInfo");
+makeButtons();
+let buttonArray = Array.from(document.getElementsByClassName("nappi"));
 // ylläolevat muuttujat pelifunktion scopen ulkopuolella
 
 function playGame(event) {
@@ -25,6 +27,13 @@ function playGame(event) {
         wins++;
         document.getElementById("voitot").innerHTML = `Voitot: ${wins}`;
         gameInfo.innerHTML = `Arvasit oikein! Oikea numero oli ${correct}.`;
+        buttonArray.map((btn) => {
+            if (parseInt(btn.value) !== correct) {
+                btn.disabled = true;
+            } else {
+                btn.style.backgroundColor = "green";
+            }
+        });
         timesGuessed = GAME_END; // asetetaan peli päättyneeksi 
         return; // return pois funktiosta jälleen kerran
     } else {
@@ -32,8 +41,20 @@ function playGame(event) {
             losses++;
             document.getElementById("tappiot").innerHTML = `Tappiot: ${losses}`;
             gameInfo.innerHTML = `Peli ohi! Oikea numero oli ${correct}.`;
+        } else if (userGuess > correct) {
+            gameInfo.innerHTML = `Väärin! Arvauksesi ${userGuess} on liian suuri.`;
+            buttonArray.map((btn) => {
+                if (parseInt(btn.value) >= userGuess) {
+                    btn.disabled = true;
+                }
+            });
         } else {
-            gameInfo.innerHTML = `Väärin! Yritä uudelleen. Sinulla on ${maxGuesses - timesGuessed} arvausta jäljellä.`;
+            gameInfo.innerHTML = `Väärin! Arvauksesi ${userGuess} on liian pieni.`;
+            buttonArray.map((btn) => {
+                if (parseInt(btn.value) <= userGuess) {
+                    btn.disabled = true;
+                }
+            });
         }
     }
 }
@@ -44,6 +65,10 @@ function resetGame() {
     timesGuessed = 0;
     document.getElementById("arvaukset").innerHTML = `Arvausten lukumäärä: ${timesGuessed}`;
     document.getElementById("arvatutNumerot").innerHTML = "Arvatut numerot: ";
+    buttonArray = Array.from(document.getElementsByClassName("nappi"));
+    buttonArray.map((btn) => {
+        btn.disabled = false;
+    });
 }
 
 function makeButtons() { // tehdään napit dynaamisesti, jottei html-koodissa olisi niin paljon toistoa
@@ -61,4 +86,3 @@ function makeButtons() { // tehdään napit dynaamisesti, jottei html-koodissa o
         buttonWrapper.appendChild(button);
     }
 }
-makeButtons();
