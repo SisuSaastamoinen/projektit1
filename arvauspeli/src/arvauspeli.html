@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arvauspeli</title>
-    <script src="arvauspeli.js"></script>
     <link rel="stylesheet" href="arvauspeli.css">
 </head>
 <body>
@@ -13,6 +12,7 @@
         <br>
         <p id="voitot" value="0">Voitot: 0</p>
         <p id="tappiot" value="0">Tappiot: 0</p>
+        <p id="gameInfo">Uusi peli aloitettu!</p>
         <button onclick="guess(event)" class="nappi" name="button" value="1">1</button>
         <button onclick="guess(event)" class="nappi" name="button" value="2">2</button>
         <button onclick="guess(event)" class="nappi" name="button" value="3">3</button>
@@ -29,4 +29,5 @@
         <button onclick="resetGame()" id="uusiPeli">Uusi peli?</button>
     </form>
 </body>
+<script src="arvauspeli.js"></script>
 </html>
