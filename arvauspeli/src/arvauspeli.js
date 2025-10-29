@@ -41,6 +41,8 @@ function playGame(event) {
             losses++;
             document.getElementById("tappiot").innerHTML = `Tappiot: ${losses}`;
             gameInfo.innerHTML = `Peli ohi! Oikea numero oli ${correct}.`;
+            buttonArray.forEach((btn) => btn.disabled = true);
+            timesGuessed = GAME_END; // asetetaan peli päättyneeksi
         } else if (userGuess > correct) {
             gameInfo.innerHTML = `Väärin! Arvauksesi ${userGuess} on liian suuri.`;
             buttonArray.map((btn) => {
@@ -67,6 +69,7 @@ function resetGame() {
     document.getElementById("arvatutNumerot").innerHTML = "Arvatut numerot: ";
     buttonArray = Array.from(document.getElementsByClassName("nappi"));
     buttonArray.map((btn) => {
+        btn.style.backgroundColor = "";
         btn.disabled = false;
     });
 }
