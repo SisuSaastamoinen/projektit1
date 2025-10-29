@@ -1,32 +1,36 @@
 function validateForm() {
-    let userNameInput = document.getElementById("username").value;
-    console.log(userNameInput);
-    if (userNameInput == "") {
+    let x = document.getElementById("username").value;
+    if (x == "") {
         alert("Nimi ei voi olla tyhjä.")
+        return 
     }
-    let y = document.getElementById["password"].value;
+    let y = document.getElementById("password").value;
     if (y == "") {
         alert("Salasana ei voi olla tyhjä.")
+        return 
     }
-    let a1 = document.getElementById["userOptionRadio1a"].value;
-    let a2 = document.getElementById["userOptionRadio2a"].value;
-    let a3 = document.getElementById["userOptionRadio3a"].value;
-    console.log(a1, a2, a3);
-    if (a1 == unchecked && a2 == unchecked && a3 == unchecked) {
+    let a1 = document.getElementById("userOptionRadio1a").checked;
+    let a2 = document.getElementById("userOptionRadio2a").checked;
+    let a3 = document.getElementById("userOptionRadio3a").checked;
+    if (!a1 && !a2 && !a3) {
         alert("Valitse käyttäjä tyyppi.")
+        return
     }
-    let b1 = document.getElementById["userOptionCheckbox1b"].value;
-    let b2 = document.getElementById["userOptionCheckbox2b"].value;
-    let b3 = document.getElementById["userOptionCheckbox3b"].value;
-    if (b1 == unchecked && b2 == unchecked && b3 == unchecked) {
+    let b1 = document.getElementById("userOptionCheckbox1b").checked;
+    let b2 = document.getElementById("userOptionCheckbox2b").checked;
+    let b3 = document.getElementById("userOptionCheckbox3b").checked;
+    if (!b1 && !b2 && !b3) {
         alert("Täytä mielipide.")
+        return
     }
-    let q = document.getElementById["parannusehdotukset"].value;
+    let q = document.getElementById("parannusehdotukset").value;
     if (q == "") {
-        alert("Kirjoitsa parannusehdotus.")
+        alert("Kirjoita parannusehdotus.")
+        return
     }
-    let w = document.getElementById["lempiaine"].value;
+    let w = document.getElementById("lempiaine").value;
     if (w == "eiValintaa") {
         alert("Valitse lempi aine.")
+        return
     }
 }
