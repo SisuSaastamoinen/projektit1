@@ -49,3 +49,11 @@ article
   border-color: red;
   background-color: red;
 }
+form
+{
+  margin: 0 auto;
+  width: 250px;
+  background-color: lightgrey;
+  padding: 20px;
+  text-align: center;
+}
