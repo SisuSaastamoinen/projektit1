@@ -1,5 +1,5 @@
 function validateForm() {
-    let x = document.getElementById("username").value;
+    let x = document.getElementById("nimi").value;
     if (x == "") {
         alert("Nimi ei voi olla tyhjä.")
         return; 
@@ -10,6 +10,7 @@ function validateForm() {
         return; 
     }
     const emailInput= document.getElementById("email").value;
+    console.log(emailInput);
     if (!emailIsValid(emailInput)) {
         alert("Anna kelvollinen sähköpostiosoite.");
         return;
@@ -40,4 +41,5 @@ function validateForm() {
         return;
     }
 }
+
 function emailIsValid(email) { return/^[^\s@]+@[^\s@]+$/.test(email)}
