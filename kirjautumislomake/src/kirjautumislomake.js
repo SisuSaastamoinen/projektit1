@@ -34,3 +34,16 @@ function validateForm() {
         return;
     }
 }
+function emailIsValid(email) { return/^[^\s@]+@[^\s@]+$/.test(email)}
+
+function validateForm() {
+    const emailInput = document.getElementById("email");
+    const email = emailInput.value;
+  
+    if (!emailIsValid(email)) {
+      alert("Anna kelvollinen sähköpostiosoite.");
+      emailInput.focus();
+      return false;
+    }
+    return true;
+}
