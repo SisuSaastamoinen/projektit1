@@ -11,13 +11,14 @@ function guess(event) {
         wins++;
         document.getElementById("voitot").innerText = "Voitot: " + wins;
         return;
-    } else if (timesGuessed < 3) {
-        guesses.push(userGuess);
-        timesGuessed++;
-        alert("Väärin! Yritä uudestaan.");
     } else {
-        alert("Hävisit pelin! Oikea numero oli " + correct + ".");
-    } 
-    losses++;
+        guesses.push(userGuess);
+        alert("Väärin! Yritä uudestaan.");
+    }
+    timesGuessed++;
+    if (timesGuessed == maxGuesses) {
+        alert("Hävisit pelin! Oikea numero oli: " + correct);
+        losses++;
+    }
     document.getElementById("tappiot").innerText = "Tappiot: " + losses;
 }
