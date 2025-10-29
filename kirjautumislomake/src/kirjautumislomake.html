@@ -39,7 +39,9 @@
                 <option value="tietokannat">Tietokannat</option>
                 <option value="media">Media</option>
                 <option value="muuAine">Muu aine</option>
-            </select><br>
+            </select><br><br>
+            <label for="age"><b>Ikä:</b></label><br>
+            <input type="number" id="ika" name="ika" min="15" max="99" required><br>
             <h3>Kerro, miten kehittäisit sivujani</h3>
             <textarea id="parannusehdotukset" rows="4" cols="30" placeholder="Kirjoita parannusehdotuksesi tähän..."></textarea><br><br>
             <button onclick="validateForm()">Lähetä</button>
