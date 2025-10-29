@@ -7,14 +7,6 @@
     <link rel="stylesheet" href="kirjautumislomake.css">
 </head>
 <body>
-<<<<<<< HEAD
-    <label>Kirjautumis lomake</label><br>
-    <label for="">Nimi:</label><br>
-    <input type="text" id="nimi"><br>
-    <label>Salasana</label><br>
-    <input type="text" id="salasana"><br>
-    
-=======
     <div id="wrapperdiv">
         <form id="loginForm">
             <h2>Kirjautumislomake</h2>
@@ -32,15 +24,18 @@
             <input type="checkbox" id="userOption3b"> Ostan sinulta!</input><br>
             <h3>Mikä on lempiaineesi Keudassa</h3>
             <select id="lempiaine" >
-                <option value="eiValintaa">--Ei valintaa--</option>
+                <option value="eiValintaa">ammattiaineet</option>
                 <option value="ohjelmointi">Ohjelmointi</option>
                 <option value="verkkosivut">Verkkosivut</option>
                 <option value="tietokannat">Tietokannat</option>
                 <option value="media">Media</option>
                 <option value="muuAine">Muu aine</option>
+            </select><br>
+            <h3>Kerro, miten kehittäisit sivujani</h3>
+            <textarea id="parannusehdotukset" rows="4" cols="30" placeholder="Kirjoita parannusehdotuksesi tähän..."></textarea><br><br>
+            <input type="submit" value="Lähetä">
         </form>
     </div>
->>>>>>> ecc338d527c1a819714982028968af6c271d5e09
 </body>
 <script src="kirjautumislomake.js"></script>
 </html>
