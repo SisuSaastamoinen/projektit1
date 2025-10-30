@@ -1,5 +1,6 @@
 let expression = "";
 createButtons();
+
 function createButtons() {
     const buttonLabels = ['AC','C','%','/','7','8','9','*','4','5','6','-','1','2','3','+','0',',','=']
     let buttonContainer = document.getElementById("buttonContainer");
@@ -22,7 +23,7 @@ function createButtons() {
 }
 
 function evaluateExpression() {
-    let result = eval(expression.replace(',', '.'));
+    let result = eval(expression.replaceAll(',', '.'));
     let numberDisplay = document.getElementById("numberDisplay");
     numberDisplay.innerHTML = result.toString().replace('.', ',');
     expression = result.toString().replace('.', ',');
@@ -31,8 +32,8 @@ function evaluateExpression() {
 function parseExpression(event) {
     console.log(event.target.value);
     let numberDisplay = document.getElementById("numberDisplay");
-    const input = classifyInput(event.target.value);
-    switch (input.value) {
+    const input = event.target.value;
+    switch (input) {
         case '=':
             evaluateExpression();
             return;
@@ -45,36 +46,7 @@ function parseExpression(event) {
             numberDisplay.innerHTML = numberDisplay.innerHTML.slice(0, -1);
             return;
         default:
-            expression += input.value;
+            expression += input;
     }
-    numberDisplay.innerHTML += input.value;
-}
-
-function classifyInput(input) {
-    const operators = ['+','-','*','/','%','='];
-    if (!isNaN(input)) {
-        return new numberInput(input);
-    } else if (operators.includes(input)) {
-        return new operatorInput(input);
-    } else {
-        return new editingInput(input)  ;
-    }
-}
-
-class numberInput {
-    constructor(value) {
-        this.value = value;
-    }   
-}
-
-class operatorInput {
-    constructor(value) {
-        this.value = value;
-    }
-}
-
-class editingInput {
-    constructor(value) {
-        this.value = value;
-    }   
+    numberDisplay.innerHTML += input;
 }
