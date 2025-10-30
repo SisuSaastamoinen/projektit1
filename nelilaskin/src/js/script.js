@@ -1,3 +1,14 @@
+/* TODO: 
+    - Prosenttilaskut ei toimi, tee ne eval-funktioon
+    - Estä useampi pilkku peräkkäin
+    - Estä laskuoperaattoreiden peräkkäisyys
+    - Estä laskuoperaattori ensimmäisenä merkkinä
+    - Estä laskuoperaattori viimeisenä merkkinä ennen "="
+    - Estä nollalla aloitettu luvun syöttäminen (esim. 0123)
+    - Kun taulussa on 0, numeronappi korvaa nollan eikä lisää perään
+    - Lisää näppäimistötuki
+*/
+
 let expression = "";
 createButtons();
 
