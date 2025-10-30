@@ -21,15 +21,33 @@ function createButtons() {
     }
 }
 
+function evaluateExpression() {
+    let result = eval(expression.replace(',', '.'));
+    let numberDisplay = document.getElementById("numberDisplay");
+    numberDisplay.innerHTML = result.toString().replace('.', ',');
+    expression = result.toString().replace('.', ',');
+}
+
 function parseExpression(event) {
     console.log(event.target.value);
-    let calculatorContainer = document.getElementById("calculatorContainer");
+    let numberDisplay = document.getElementById("numberDisplay");
     const input = classifyInput(event.target.value);
-    if (input.value === '=') {
-        
-        return;
+    switch (input.value) {
+        case '=':
+            evaluateExpression();
+            return;
+        case 'AC':
+            expression = "";
+            numberDisplay.innerHTML = "";
+            return;
+        case 'C':
+            expression = expression.slice(0, -1);
+            numberDisplay.innerHTML = numberDisplay.innerHTML.slice(0, -1);
+            return;
+        default:
+            expression += input.value;
     }
-    calculatorContainer.innerHTML += input.value;
+    numberDisplay.innerHTML += input.value;
 }
 
 function classifyInput(input) {
