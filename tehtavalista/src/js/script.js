@@ -1,7 +1,7 @@
 let todoList = [];
-let input = document.getElementById("todoInput").value;
 const enterButton = document.getElementById("submitButton");
 enterButton.addEventListener("click", addToListAfterEnterPressed);
+let input = document.getElementById("todoInput");
 
 function addToListAfterEnterPressed(event) {
   if (checkInputLength() > 0 && event.which == 13) {
@@ -16,7 +16,7 @@ function addToListAfterButtonClick() {
 }
 
 function checkInputLength() {
-  return input.length;
+  return input.value.length;
 }
 
 function checkTodoListLength() {
@@ -24,17 +24,24 @@ function checkTodoListLength() {
 }
 
 function createNewTodo() {
-  input = document.getElementById("todoInput").value;
   let li = document.createElement("li");
   let listWrapper = document.getElementById("todoWrapper");
-  console.log(input);
-  li.appendChild(document.createTextNode(input));
+  li.appendChild(document.createTextNode(input.value));
   var deleteButton = document.createElement("button");
+  deleteButton.setAttribute("className", "deleteButton");
   deleteButton.appendChild(document.createTextNode("X"));
-  deleteButton.addEventListener("click", deleteTodoItem());
+  deleteButton.addEventListener("click", deleteTodoItem);
+  li.addEventListener("click", function () {
+    li.classList.toggle("myStyle");
+  });
   li.appendChild(deleteButton);
   listWrapper.appendChild(li);
-  todoList.push(input);
+  todoList = listWrapper.querySelectorAll("li");
+  console.log(todoList);
+  input.value = "";
+  //   Array.from(todoList).forEach((item) => {
+  //     console.log("List item: " + item.innerText);
+  //   });
 }
 
 function deleteTodoItem() {
