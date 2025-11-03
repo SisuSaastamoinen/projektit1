@@ -1,5 +1,7 @@
 let todoList = [];
+
 let input = document.getElementById("todoInput").value;
+
 var enterButton = document.getElementById("submitButton");
 enterButton.addEventListener("click",addToList);
 
