@@ -26,13 +26,14 @@ function checkTodoListLength() {
 function createNewTodo() {
   var li = document.createElement("li");
   let listWrapper = document.getElementById("todoWrapper");
-  li.appendChild(document.createTextNode(input.value));
+  console.log(input);
+  li.appendChild(document.createTextNode(input));
   var del = document.createElement("button");
   del.appendChild(document.createTextNode("X"));
   del.addEventListener("click", deleteTodoItem());
   li.appendChild(del);
   listWrapper.appendChild(li);
-  input.value = "";
+  input = "";
 }
 
 function deleteTodoItem() {
