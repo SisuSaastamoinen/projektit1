@@ -1,19 +1,33 @@
 #h1a {
-  text-align: center;
+  color: #ffffff;
 }
 
 #h3a {
-  text-align: center;
+  color: #fff912;
 }
 
 #h3b {
-  text-align: center;
+  color: #12ff32;
 }
 
 #h3c {
-  text-align: center;
+  color: #1b459e;
 }
 
 body {
   background: #27bef5;
+  text-align: center;
+}
+
+#todoInput {
+  width: 500px;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+#submitButton {
+  padding: 5px;
+  color: #27bef5;
+  background-color: #1b459e;
+  border-radius: 4px;
 }
