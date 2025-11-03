@@ -1,17 +1,17 @@
 let todoList = [];
 let input = document.getElementById("todoInput").value;
 var enterButton = document.getElementById("submitButton");
-enterButton.addEventListener("click",addToList);
+enterButton.addEventListener("click", addToListAfterEnterPressed());
 
 function addToListAfterEnterPressed() {
   if (checkInputLength() > 0 && event.which == 13) {
-    newTodo();
+    createNewTodo();
   }
 }
 
 function addtoListAfterButtonClick() {
   if (checkInputLength() > 0) {
-    newTodo();
+    createNewTodo();
   }
 }
 
@@ -25,14 +25,19 @@ function checkTodoListLength() {
 
 function createNewTodo() {
   var li = document.createElement("li");
+  let listWrapper = document.getElementById("todoWrapper");
   {
     li.appendChild(document.createTextNode(input.value));
-  	ul.appendChild(li);
-  	input.value = "";
-}
+    input.value = "";
+    var del = document.createElement("button");
+    del.appendChild(document.createTextNode("X"));
+    del.addEventListener("click", deleteTodoItem());
+    li.appendChild(del);
+    listWrapper.appendChild(li);
+  }
 }
 
-var del = document.createElement("button"); 
-del.appendChild(document.createTextNode("X"));
-li.appendChild(del);
-del.addEventListener("click", delTask);
+function deleteTodoItem() {
+  return;
+}
+
