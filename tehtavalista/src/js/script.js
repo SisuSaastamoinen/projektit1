@@ -1,5 +1,5 @@
 let todoList = [];
-let input = document.getElementById("todoInput");
+let input = document.getElementById("todoInput").value;
 
 function addToListAfterEnterPressed() {
   if (checkInputLength() > 0 && event.which == 13) {
