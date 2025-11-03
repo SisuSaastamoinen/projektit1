@@ -13,9 +13,9 @@ let expression = "";
 createButtons();
 
 function createButtons() {
-    const buttonLabels = ['AC','C','%','/','7','8','9','*','4','5','6','-','1','2','3','+','0',',','=']
+    const buttonLabels = ['AC', 'C', '%', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', '0', ',', '=']
     let buttonContainer = document.getElementById("buttonContainer");
-    for (let i=0;i<buttonLabels.length; i++) {
+    for (let i = 0; i < buttonLabels.length; i++) {
         if (i % 4 == 0) {
             const br = document.createElement("br")
             buttonContainer.appendChild(br);
