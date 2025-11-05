@@ -1,14 +1,31 @@
-let board = [];
+var board;
+var clickedOnce = false;
 createBoard();
+console.log("Pelilaudan elementit:");
+console.log(Array.from(board.children));
 
 function onClickPicture() {
-  console.log("onclick toimii!")
+  console.log("onclick toimii!");
+}
+
+function resetGame() {
+  console.log("resetGame toimii!")
+}
+
+function setGameSize() {
+  console.log("setGameSize toimii!");
+}
+
+function startGame() {
+  console.log("startGame toimii!");
 }
 
 function createBoard() {
   /*TODO: 
-  * lataa kuvat, lyö ne listaan ja sekoita,
-  * jotta ne saadaan elementteihin
+  * lataa kuvat netistä, lyö ne listaan ja sekoita,
+  * jotta ne saadaan elementteihin,
+  * joudutaan tod.näk laittamaan ne oikean kokoisiksi ensin,
+  * tiedostopolku on "../resources/img/monkeXX.jpg"
   * */
   let pictureIdAppendix = 0;
   let pictures = [];
@@ -22,6 +39,8 @@ function createBoard() {
       newTr.appendChild(newTd);
       pictureIdAppendix++;
     }
-    document.getElementById("boardContainer").appendChild(newTr);
+    let boardContainer = document.getElementById("boardContainer");
+    boardContainer.appendChild(newTr);
+    board = boardContainer;
   }
 }
