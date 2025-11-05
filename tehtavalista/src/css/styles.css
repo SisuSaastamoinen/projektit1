@@ -28,10 +28,59 @@ h1 {
   font-weight: 800;
 }
 
+.todoWrapper {
+  margin: 0 auto;
+  width: 800px;
+}
+
 #todoInput {
-  width: 500px;
   border-radius: 4px;
   padding: 5px;
+  border: none;
+  width: 400px;
+}
+
+.container {
+  margin: auto;
+  width: 800px;
+}
+
+li {
+  width: 700px;
+  height: 20px;
+  list-style: none;
+  padding: 10px 20px;
+  color: white;
+  text-transform: capitalize;
+  font-weight: 600;
+  border: 2px solid #025f70;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background: #4eb9cd;
+  transition: all 0.75s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5 ease;
+}
+
+li:hover {
+  background: #76cfe0;
+}
+
+li > button {
+  font-weight: normal;
+  background: none;
+  border: none;
+  float: right;
+  color: #025f70;
+  font-weight: 800;
+}
+
+ul {
+  text-align: left;
+  margin-top: 20px;
+  padding-left: 20px;
 }
 
 #submitButton {
@@ -39,4 +88,12 @@ h1 {
   color: #27bef5;
   background-color: #1b459e;
   border-radius: 4px;
+}
+
+.myStyle {
+  background-color: limegreen;
+}
+
+.deleteButton {
+  text-align: right;
 }

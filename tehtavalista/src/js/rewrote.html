@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="">
+<html lang="fi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tehtävälista</title>
     <link href="css/styles.css" rel="stylesheet" />
+    <script src="rewrote.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -17,15 +18,8 @@
         Napauta tehtävän perässä X-kirjainta poistaaksesi tehtävän
       </p>
       <input id="todoInput" type="text" placeholder="Uusi tehtävä..." />
-      <button
-        id="submitButton"
-        type="submit"
-        onclick="addToListAfterButtonClick()"
-      >
-        Lisää tehtävä
-      </button>
+      <button id="submitButton" type="submit">Lisää tehtävä</button>
       <ul id="todoWrapper"></ul>
     </div>
   </body>
-  <script src="js/script.js"></script>
 </html>

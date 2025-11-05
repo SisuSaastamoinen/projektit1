@@ -1,24 +1,22 @@
 let todoList = [];
+const enterButton = document.getElementById("submitButton");
+enterButton.addEventListener("click", addToListAfterEnterPressed);
+let input = document.getElementById("todoInput");
 
-let input = document.getElementById("todoInput").value;
-
-var enterButton = document.getElementById("submitButton");
-enterButton.addEventListener("click", addToListAfterEnterPressed());
-
-function addToListAfterEnterPressed() {
+function addToListAfterEnterPressed(event) {
   if (checkInputLength() > 0 && event.which == 13) {
     createNewTodo();
   }
 }
 
-function addtoListAfterButtonClick() {
+function addToListAfterButtonClick() {
   if (checkInputLength() > 0) {
     createNewTodo();
   }
 }
 
 function checkInputLength() {
-  return todoInput.value.length;
+  return input.value.length;
 }
 
 function checkTodoListLength() {
@@ -26,16 +24,24 @@ function checkTodoListLength() {
 }
 
 function createNewTodo() {
-  var li = document.createElement("li");
+  let li = document.createElement("li");
   let listWrapper = document.getElementById("todoWrapper");
-  console.log(input);
-  li.appendChild(document.createTextNode(input));
-  var del = document.createElement("button");
-  del.appendChild(document.createTextNode("X"));
-  del.addEventListener("click", deleteTodoItem());
-  li.appendChild(del);
+  li.appendChild(document.createTextNode(input.value));
+  var deleteButton = document.createElement("button");
+  deleteButton.setAttribute("className", "deleteButton");
+  deleteButton.appendChild(document.createTextNode("X"));
+  deleteButton.addEventListener("click", deleteTodoItem);
+  li.addEventListener("click", function () {
+    li.classList.toggle("myStyle");
+  });
+  li.appendChild(deleteButton);
   listWrapper.appendChild(li);
-  input = "";
+  todoList = listWrapper.querySelectorAll("li");
+  console.log(todoList);
+  input.value = "";
+  //   Array.from(todoList).forEach((item) => {
+  //     console.log("List item: " + item.innerText);
+  //   });
 }
 
 function deleteTodoItem() {
