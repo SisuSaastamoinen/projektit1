@@ -22,7 +22,7 @@ function checkInputLength() {
 }
 
 function checkTodoListLength() {
-  return todoList.length();
+  return todoList.length;
 }
 
 function createNewTodo() {
