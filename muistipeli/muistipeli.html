@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-
-</body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Muistipeli</title>
+    <link href="css/muistipeli.css" rel="stylesheet">
+  </head>
+  <header>
+    <a href="./index.html">
+      Aloitus
+    </a>
+    <a href="./muistipeli.html">
+      Muistipeli
+    </a>
+</header>
+  <body>
+     <h1>Tervetuloa muistipeliin.</h1>
+     <img src="./resources/img/monke.jpg">
+     <p>Valitse pelimuoto ja paina nappia aloittaaksesi pelin.</p>
+     <select name="pelimuoto" id="pelimuoto">
+      <option value="4x4">4x4</option>
+      <option value="4x6">4x6</option>
+      <option value="6x6">6x6</option>
+     </select><br>
+     <br>
+     <a href="./muistipeli.html">Alota peli</a>
+  </body>
+  <script src="js/script.js"></script>
 </html>
