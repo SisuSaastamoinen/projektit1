@@ -1,0 +1,6 @@
+body {
+  margin: 0 auto;
+  width: 700px;
+  padding: 10px;
+  background-image: linear-gradient(to left, purple, gold);
+}
