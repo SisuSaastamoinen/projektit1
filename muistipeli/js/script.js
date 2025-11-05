@@ -1,0 +1,11 @@
+suuruus() {
+
+}
+
+resetoi(){
+
+}
+
+aloita(){
+    
+}
