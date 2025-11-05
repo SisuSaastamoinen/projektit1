@@ -7,42 +7,42 @@
   <title>Muistipeli</title>
   <link href="css/muistipeli.css" rel="stylesheet">
 </head>
-<header>
-  <nav>
-    <ul>
-      <li>
-        <a href="./index.html">
-          Aloitus
-        </a>
-      </li>
-      <li>
-        <a href="./muistipeli.html">
-          Muistipeli
-        </a>
-      </li>
-    </ul>
-  </nav>
-</header>
 
 <body>
-  <h1>Tervetuloa muistipeliin.</h1>
-  <img src="./resources/img/monke.jpg">
-  <p>Valitse pelimuoto ja paina nappia aloittaaksesi pelin.</p>
-  <select name="pelimuoto" id="pelimuoto">
-    <option value="4x4">4x4</option>
-    <option value="4x6">4x6</option>
-    <option value="6x6">6x6</option>
-  </select><br>
-  <p id="aika" style="margin: 0; display: inline; float: right">
-    Aika: 00:00:00
-  </p>
-  <p id="arvaukset" style="margin: 0; display: inline; float: left">
-    Arvausten määrä: 0
-  </p>
-  <button onclick="suuruus()">Luo</button>
-  <button onclick="resetoi()">Aloita alusta</button>
-  <br>
-  <button onclick="aloita()">Aloita peli</button>
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="./index.html">
+            Aloitus
+          </a>
+        </li>
+        <li>
+          <a href="./muistipeli.html">
+            Muistipeli
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <fieldset>
+    <label for="pelimuoto">Anna korkeus ja leveys</label>
+    <select name="pelimuoto" id="pelimuoto">
+      <option value="4x4">4x4</option>
+      <option value="4x6">4x6</option>
+      <option value="6x6">6x6</option>
+    </select>
+    <p id="aika" style="margin: 0; display: inline; float: right">
+      Aika: 00:00:00
+    </p>
+    <p id="arvaukset" style="margin: 0; display: inline; float: left">
+      Arvausten määrä: 0
+    </p>
+    <button onclick="suuruus()">Luo</button>
+    <button onclick="resetoi()">Aloita alusta</button>
+    <button onclick="aloita()">Aloita peli</button>
+    <table id="boardContainer"></table>
+  </fieldset>
 </body>
 <script src="js/script.js"></script>
 

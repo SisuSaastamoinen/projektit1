@@ -2,6 +2,7 @@ fieldset {
   text-align: center;
   background-color: lightblue;
   min-height: 500px;
+  item-align: center;
 }
 header {
   height: 40px;
@@ -27,4 +28,24 @@ body {
   width: 700px;
   padding: 10px;
   background-image: linear-gradient(to left, purple, gold);
+}
+#monke {
+  align-items: left;
+  margin: 10px;
+}
+
+td {
+  background-color: grey;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: darkgrey;
+  size: 100px;
+}
+
+table {
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  border-style: none;
+  border-radius: 10px;
 }
