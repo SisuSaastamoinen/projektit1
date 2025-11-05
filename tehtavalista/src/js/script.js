@@ -1,13 +1,17 @@
 let todoList = [];
-const enterButton = document.getElementById("submitButton");
-enterButton.addEventListener("click", addToListAfterEnterPressed);
-let input = document.getElementById("todoInput");
+const submitButton = document.getElementById("submitButton");
+const input = document.getElementById("todoInput");
+const listWrapper = document.getElementById("todoWrapper");
 
-function addToListAfterEnterPressed(event) {
-  if (checkInputLength() > 0 && event.which == 13) {
+// Add listener for button click
+submitButton.addEventListener("click", addToListAfterButtonClick);
+
+// Add listener for Enter key on input field
+input.addEventListener("keypress", function (event) {
+  if (event.key === "Enter" && checkInputLength() > 0) {
     createNewTodo();
   }
-}
+});
 
 function addToListAfterButtonClick() {
   if (checkInputLength() > 0) {
@@ -16,34 +20,26 @@ function addToListAfterButtonClick() {
 }
 
 function checkInputLength() {
-  return input.value.length;
-}
-
-function checkTodoListLength() {
-  return todoList.length;
+  return input.value.trim().length;
 }
 
 function createNewTodo() {
-  let li = document.createElement("li");
-  let listWrapper = document.getElementById("todoWrapper");
-  li.appendChild(document.createTextNode(input.value));
-  var deleteButton = document.createElement("button");
-  deleteButton.setAttribute("className", "deleteButton");
-  deleteButton.appendChild(document.createTextNode("X"));
-  deleteButton.addEventListener("click", deleteTodoItem);
+  const li = document.createElement("li");
+  li.textContent = input.value;
+
+  const deleteButton = document.createElement("button");
+  deleteButton.className = "deleteButton";
+  deleteButton.textContent = "X";
+  deleteButton.addEventListener("click", function () {
+    li.remove();
+  });
+
   li.addEventListener("click", function () {
     li.classList.toggle("myStyle");
   });
+
   li.appendChild(deleteButton);
   listWrapper.appendChild(li);
-  todoList = listWrapper.querySelectorAll("li");
-  console.log(todoList);
-  input.value = "";
-  //   Array.from(todoList).forEach((item) => {
-  //     console.log("List item: " + item.innerText);
-  //   });
-}
 
-function deleteTodoItem() {
-  return;
+  input.value = "";
 }
