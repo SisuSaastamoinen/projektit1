@@ -3,6 +3,8 @@ var clickedOnce = false;
 createBoard();
 console.log("Pelilaudan elementit:");
 console.log(Array.from(board.children));
+let gameSizeRows, gameSizeCols;
+let running = false;
 
 function onClickPicture() {
   console.log("onclick toimii!");
@@ -13,11 +15,17 @@ function resetGame() {
 }
 
 function setGameSize() {
-  console.log("setGameSize toimii!");
+  let sizes = document.getElementById("sizeSelect").value.split("x");
+  gameSizeRows = parseInt(sizes[0]);
+  gameSizeCols = parseInt(sizes[1]);
 }
 
 function startGame() {
-  console.log("startGame toimii!");
+  if (running) {
+    alert("Game already running! Please reset before starting a new game.");
+    return;
+  }
+  running = true;
 }
 
 function createBoard() {
