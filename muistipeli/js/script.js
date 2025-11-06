@@ -34,9 +34,9 @@ function startGame() {
 function assignImagesToBoard() {
   for (let i = 1, j = 19; i <= 18, j <= 36; i++, j++) {
     const img1 = document.createElement("img");
-    img1.src = "../resources/img/monke" + i + ".jpg";
+    img1.src = "./resources/img/dev_icons/dev" + i + ".jpg";
     const img2 = document.createElement("img");
-    img2.src = "../resources/img/monke" + i + ".jpg";
+    img2.src = "./resources/img/dev_icons/dev" + i + ".jpg";
     document.getElementById("pic" + i).appendChild(img1);
     document.getElementById("pic" + j).appendChild(img2);
   }
