@@ -2,7 +2,6 @@ fieldset {
   text-align: center;
   background-color: lightblue;
   min-height: 500px;
-  item-align: center;
 }
 header {
   height: 40px;
@@ -39,8 +38,8 @@ td {
   border-radius: 5px;
   border-style: solid;
   border-color: darkgrey;
-  size: 100px;
-  backgroung-image: url('../images/monke1.jpg');
+  width: 100px;
+  height: 100px;
 }
 
 table {
