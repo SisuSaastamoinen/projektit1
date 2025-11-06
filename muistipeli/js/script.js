@@ -30,6 +30,16 @@
  * Author: [Your Name]
  * Date: [Date]
  */
+
+/*TODO:
+ *
+ * shuffle images on board creation
+ * handle flipping images on click
+ * handle matching logic and disabling matched images
+ * track number of guesses
+ * display score and timer
+ */
+
 var board;
 var clickedOnce = false;
 var created = false;
