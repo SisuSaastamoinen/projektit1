@@ -16,7 +16,7 @@
  * Key Functions:
  * - createBoard(): Generates the game board and initializes game state.
  * - handleCardClick(event): Handles user clicks on cards, manages flipping and matching.
- * - shuffle(array): Utility function to randomize the order of cards.
+ * - shuffle(nameList): Utility function to randomize the order of cards.
  * - resetGame(): Resets the game state and UI for a new game.
  *
  * Dependencies:
@@ -33,7 +33,6 @@
 
 /*TODO:
  *
- * shuffle images on board creation
  * handle flipping images on click
  * handle matching logic and disabling matched images
  * track number of guesses
@@ -48,13 +47,12 @@ var running = false;
 var guesses;
 
 function onClickPicture() {
-  console.log("onclick toimii!");
+  let id = this.id.replace("pic", "img");
+  document.getElementById(id).src = "../resources/img/dev_icons/devdefault.jpg";
 }
 
 function resetGame() {
-  if (!running) {
-    return;
-  }
+  if (!running) { return; }
   created = false;
   running = false;
   guesses = 0;
@@ -78,40 +76,51 @@ function startGame() {
   running = true;
 }
 
-function assignImagesToBoard() {
-  for (
-    let i = 1, j = gameSizeRows * 2 + 1;
-    i <= (gameSizeRows * gameSizeCols) / 2, j <= gameSizeCols * gameSizeRows;
-    i++, j++
-  ) {
-    const img1 = document.createElement("img");
-    img1.src = "../resources/img/dev_icons/dev" + i + ".jpg";
-    const img2 = document.createElement("img");
-    img2.src = "../resources/img/dev_icons/dev" + i + ".jpg";
-    document.getElementById("pic" + i).appendChild(img1);
-    document.getElementById("pic" + j).appendChild(img2);
+function shuffleNames(nameList) {
+  for (let i = nameList.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [nameList[i], nameList[j]] = [nameList[j], nameList[i]];
   }
+  return nameList;
 }
 
 function createBoard() {
-  if (created) {
-    return;
+
+  if (created) { return; }
+
+  let filenames = []
+  let gridSize = (gameSizeRows * gameSizeCols) / 2;
+
+  for (let i = 1; i <= gridSize; i++) {
+    filenames.push("dev" + i + ".jpg");
+    filenames.push("dev" + i + ".jpg");
   }
+
+  filenames = shuffleNames(filenames);
+  console.log(filenames);
+
   let pictureIdAppendix = 1;
-  let filenameSuffixIdx = 1;
+  let filenameSuffixIdx = 0;
+
   for (let i = 1; i <= gameSizeRows; i++) {
     let newTr = document.createElement("tr");
     newTr.setAttribute("id", "row" + i);
+
     for (let j = 1; j <= gameSizeCols; j++) {
+      //create new td element
       let newTd = document.createElement("td");
       newTd.setAttribute("id", "pic" + pictureIdAppendix);
-      pictureIdAppendix++;
-      newTd.onclick = onClickPicture;
-      const img = document.createElement("img");
-      img.src = "../resources/img/dev_icons/dev" + filenameSuffixIdx + ".jpg";
+      newTd.addEventListener("click", onClickPicture);
+      //create img element, assign filepath and id and append to new td
+      let img = document.createElement("img");
+      img.src = "../resources/img/dev_icons/" + filenames[filenameSuffixIdx];
+      img.id = "img" + pictureIdAppendix;
       newTd.appendChild(img);
+      pictureIdAppendix++;
+
       filenameSuffixIdx++;
-      if (filenameSuffixIdx > (gameSizeRows * gameSizeCols) / 2) {
+
+      if (filenameSuffixIdx == gameSizeRows * gameSizeCols) {
         filenameSuffixIdx = 1;
       }
       newTr.appendChild(newTd);
