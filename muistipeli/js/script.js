@@ -16,7 +16,7 @@
  * Key Functions:
  * - createBoard(): Generates the game board and initializes game state.
  * - handleCardClick(event): Handles user clicks on cards, manages flipping and matching.
- * - shuffle(nameList): Utility function to randomize the order of cards.
+ * - shuffleNames(nameList): Utility function to randomize the order of cards.
  * - resetGame(): Resets the game state and UI for a new game.
  *
  * Dependencies:
@@ -33,7 +33,6 @@
 
 /*TODO:
  *
- * handle flipping images on click
  * handle matching logic and disabling matched images
  * track number of guesses
  * display score and timer
@@ -47,8 +46,11 @@ var running = false;
 var guesses;
 
 function onClickPicture() {
-  let id = this.id.replace("pic", "img");
-  document.getElementById(id).src = "../resources/img/dev_icons/devdefault.jpg";
+  let img = this.querySelector("img");
+  let oldAlt = img.alt;
+  let oldSrc = img.src;
+  img.alt = oldSrc;
+  img.src = oldAlt;
 }
 
 function resetGame() {
@@ -113,8 +115,9 @@ function createBoard() {
       newTd.addEventListener("click", onClickPicture);
       //create img element, assign filepath and id and append to new td
       let img = document.createElement("img");
-      img.src = "../resources/img/dev_icons/" + filenames[filenameSuffixIdx];
-      img.id = "img" + pictureIdAppendix;
+      img.alt = "../resources/img/dev_icons/" + filenames[filenameSuffixIdx];
+      img.src = "../resources/img/dev_icons/devdefault.jpg"
+      img.id = filenames[filenameSuffixIdx];;
       newTd.appendChild(img);
       pictureIdAppendix++;
 
