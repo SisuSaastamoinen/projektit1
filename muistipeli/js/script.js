@@ -1,11 +1,11 @@
-suuruus() {
+function suuruus() {
 
 }
 
-resetoi(){
+function resetoi() {
 
 }
 
-aloita(){
-    
+function aloita() {
+
 }
