@@ -50,7 +50,7 @@ function onClickPicture() {
   let oldAlt = img.alt;
   let oldSrc = img.src;
   img.alt = oldSrc;
-  img.src = oldAlt;
+  img.src = oldAlt
 }
 
 function resetGame() {
@@ -115,9 +115,9 @@ function createBoard() {
       newTd.addEventListener("click", onClickPicture);
       //create img element, assign filepath and id and append to new td
       let img = document.createElement("img");
-      img.alt = "../resources/img/dev_icons/" + filenames[filenameSuffixIdx];
-      img.src = "../resources/img/dev_icons/devdefault.jpg"
-      img.id = filenames[filenameSuffixIdx];;
+      img.alt = "./resources/img/dev_icons/" + filenames[filenameSuffixIdx];
+      img.src = "./resources/img/dev_icons/devdefault.jpg"
+      img.id = filenames[filenameSuffixIdx];
       newTd.appendChild(img);
       pictureIdAppendix++;
 
