@@ -32,7 +32,6 @@
  */
 
 /*TODO:
- * display timer
  * make the background image and hidden image the same size,
  * weird behaviour currently with 6x6 and 4x6 grids
  */
@@ -46,7 +45,9 @@ var previousImg = null;
 var clickedImg = null;
 var clickedContainer = null;
 var previousContainer = null;
-let processing = false;
+var processing = false;
+var timerInterval = null;
+var startTime = null;
 
 function onClickPicture() {
   if (processing) return;
@@ -90,6 +91,7 @@ function resetGame() {
   if (!running) {
     return;
   }
+  stopTimer();
   created = false;
   running = false;
   guesses = 0;
@@ -101,7 +103,6 @@ function setGameSize() {
   let sizes = document.getElementById("sizeSelect").value.split("x");
   gameSizeRows = parseInt(sizes[0]);
   gameSizeCols = parseInt(sizes[1]);
-  createBoard();
 }
 
 function startGame() {
@@ -109,7 +110,9 @@ function startGame() {
     alert("Game already running! Please reset before starting a new game.");
     return;
   }
-  guesses = 0;
+  startTime = Date.now();
+  timerInterval = setInterval(gameTimer, 10);
+  createBoard();
   running = true;
 }
 
@@ -121,11 +124,25 @@ function shuffleNames(nameList) {
   return nameList;
 }
 
+function gameTimer() {
+  const elapsed = Date.now() - startTime;
+  const minutes = Math.floor(elapsed / 60000);
+  const seconds = Math.floor((elapsed % 60000) / 1000);
+  const centiseconds = Math.floor((elapsed % 1000) / 10);
+  document.getElementById("aika").innerHTML =
+    `Aika: ${minutes}:${seconds.toString().padStart(2, "0")}:${centiseconds.toString().padStart(2, "0")}`;
+}
+
+function stopTimer() {
+  console.log("stopTimer() invoked");
+  clearInterval(timerInterval);
+  document.getElementById("aika").innerHTML = "00:00:00";
+}
+
 function createBoard() {
   if (created) {
     return;
   }
-
   let filenames = [];
   let gridSize = (gameSizeRows * gameSizeCols) / 2;
 
@@ -135,7 +152,6 @@ function createBoard() {
   }
 
   filenames = shuffleNames(filenames);
-  console.log(filenames);
 
   let pictureIdAppendix = 1;
   let filenameSuffixIdx = 0;
