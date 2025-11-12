@@ -40,6 +40,9 @@ td {
   border-color: darkgrey;
   width: 100px;
   height: 100px;
+  background-size: 100px 100px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 table {

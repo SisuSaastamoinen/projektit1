@@ -33,28 +33,62 @@
 
 /*TODO:
  *
- * handle matching logic and disabling matched images
- * track number of guesses
+ * dont allow clicking same element twice in a row
  * display score and timer
  */
 
 var board;
-var clickedOnce = false;
 var created = false;
 var gameSizeRows, gameSizeCols;
 var running = false;
 var guesses;
+var previousImg = null;
+var clickedImg = null;
+var clickedContainer = null;
+var previousContainer = null;
+let processing = false;
 
 function onClickPicture() {
-  let img = this.querySelector("img");
-  let oldAlt = img.alt;
-  let oldSrc = img.src;
-  img.alt = oldSrc;
-  img.src = oldAlt
+  if (processing) return;
+  if (!previousImg) {
+    previousContainer = this;
+    previousImg = this.querySelector("img");
+    previousImg.style.display = "inline";
+    return;
+  } else {
+    bothRevealed = true;
+    clickedContainer = this;
+    clickedImg = this.querySelector("img");
+    clickedImg.style.display = "inline";
+    let prevImgComparator = previousImg.src;
+    let clickedImgComparator = clickedImg.src;
+    if (prevImgComparator === clickedImgComparator) {
+      previousContainer.removeEventListener("click", onClickPicture);
+      clickedContainer.removeEventListener("click", onClickPicture);
+      previousImg = null;
+      clickedImg = null;
+      previousContainer = null;
+      clickedContainer = null;
+    } else {
+      processing = true;
+      setTimeout(() => {
+        previousImg.style.display = "none";
+        clickedImg.style.display = "none";
+        processing = false;
+        previousImg = null;
+        clickedImg = null;
+        previousContainer = null;
+        clickedContainer = null;
+      }, 1000);
+    }
+    guesses++;
+  }
 }
 
 function resetGame() {
-  if (!running) { return; }
+  if (!running) {
+    return;
+  }
   created = false;
   running = false;
   guesses = 0;
@@ -87,10 +121,11 @@ function shuffleNames(nameList) {
 }
 
 function createBoard() {
+  if (created) {
+    return;
+  }
 
-  if (created) { return; }
-
-  let filenames = []
+  let filenames = [];
   let gridSize = (gameSizeRows * gameSizeCols) / 2;
 
   for (let i = 1; i <= gridSize; i++) {
@@ -109,16 +144,18 @@ function createBoard() {
     newTr.setAttribute("id", "row" + i);
 
     for (let j = 1; j <= gameSizeCols; j++) {
-      //create new td element
       let newTd = document.createElement("td");
+      newTd.style.backgroundImage =
+        "url(./resources/img/dev_icons/devdefault.jpg)";
       newTd.setAttribute("id", "pic" + pictureIdAppendix);
       newTd.addEventListener("click", onClickPicture);
-      //create img element, assign filepath and id and append to new td
+
       let img = document.createElement("img");
-      img.alt = "./resources/img/dev_icons/" + filenames[filenameSuffixIdx];
-      img.src = "./resources/img/dev_icons/devdefault.jpg"
+      img.src = "./resources/img/dev_icons/" + filenames[filenameSuffixIdx];
       img.id = filenames[filenameSuffixIdx];
+      img.style.display = "none";
       newTd.appendChild(img);
+
       pictureIdAppendix++;
 
       filenameSuffixIdx++;
