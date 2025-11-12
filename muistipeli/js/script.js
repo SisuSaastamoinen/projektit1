@@ -32,16 +32,16 @@
  */
 
 /*TODO:
- *
- * dont allow clicking same element twice in a row
- * display score and timer
+ * display timer
+ * make the background image and hidden image the same size,
+ * weird behaviour currently with 6x6 and 4x6 grids
  */
 
 var board;
 var created = false;
 var gameSizeRows, gameSizeCols;
 var running = false;
-var guesses;
+var guesses = 0;
 var previousImg = null;
 var clickedImg = null;
 var clickedContainer = null;
@@ -50,39 +50,40 @@ let processing = false;
 
 function onClickPicture() {
   if (processing) return;
+  if (this === previousContainer) return;
   if (!previousImg) {
     previousContainer = this;
     previousImg = this.querySelector("img");
     previousImg.style.display = "inline";
     return;
   } else {
-    bothRevealed = true;
     clickedContainer = this;
     clickedImg = this.querySelector("img");
     clickedImg.style.display = "inline";
-    let prevImgComparator = previousImg.src;
-    let clickedImgComparator = clickedImg.src;
-    if (prevImgComparator === clickedImgComparator) {
+    if (previousImg.src === clickedImg.src) {
       previousContainer.removeEventListener("click", onClickPicture);
       clickedContainer.removeEventListener("click", onClickPicture);
-      previousImg = null;
-      clickedImg = null;
-      previousContainer = null;
-      clickedContainer = null;
+      resetState();
     } else {
       processing = true;
       setTimeout(() => {
         previousImg.style.display = "none";
         clickedImg.style.display = "none";
-        processing = false;
-        previousImg = null;
-        clickedImg = null;
-        previousContainer = null;
-        clickedContainer = null;
+        resetState();
       }, 1000);
     }
     guesses++;
+    document.querySelector("#arvaukset").innerText =
+      `Arvausten määrä: ${guesses}`;
   }
+}
+
+function resetState() {
+  processing = false;
+  previousImg = null;
+  clickedImg = null;
+  previousContainer = null;
+  clickedContainer = null;
 }
 
 function resetGame() {
