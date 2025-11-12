@@ -38,6 +38,9 @@
  */
 
 /*TODO:
+ * when game is created it should draw the board but the elements
+ * should not be clickable until the start button is pressed
+ * -----------------------------------------------------------
  * make the background image and hidden image the same size,
  * weird behaviour currently with 6x6 and 4x6 grids
  */

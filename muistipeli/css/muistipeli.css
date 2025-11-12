@@ -1,13 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 fieldset {
+  align-items: center;
+  background-color: #7a7a7a;
+  padding: 30px;
+  height: 760px;
+  width: 720px;
   text-align: center;
-  background-color: lightblue;
-  min-height: 500px;
+  border: none;
+  margin: 0px auto;
+  shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
 }
 header {
   height: 40px;
   background: #007ba4;
-  width: 700px;
+  width: 100vw;
   text-align: center;
+  background-color: #3b3935;
+  box-sizing: border-box;
 }
 nav li {
   float: left;
@@ -20,24 +33,20 @@ nav li {
 }
 nav a {
   color: white;
-  height: 20px;
 }
+
 body {
-  margin: 0 auto;
-  width: 700px;
-  padding: 10px;
   background-image: linear-gradient(to left, purple, gold);
 }
+
 #monke {
   align-items: left;
   margin: 10px;
 }
 
 td {
-  background-color: grey;
-  border-radius: 5px;
   border-style: solid;
-  border-color: darkgrey;
+  border-color: black;
   width: 100px;
   height: 100px;
   background-size: 100px 100px;
@@ -45,10 +54,29 @@ td {
   background-repeat: no-repeat;
 }
 
+td:hover {
+  background-color: #7a7a7a;
+  border-color: white;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  vertical-align: middle;
+  box-shadow: 0 0 8px #34987db;
+  height: auto;
+}
+
 table {
-  width: 600px;
-  height: 600px;
+  width: 680px;
+  height: 680px;
   margin: 0 auto;
+  padding: 0px;
   border-style: none;
   border-radius: 10px;
+}
+html {
+  css-font-size: 12px;
+  font-family: "Lucida Console", "Courier New", monospace;
 }
