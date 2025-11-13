@@ -58,18 +58,22 @@ body {
 
 #boardContainer {
   display: grid;
-  gap: 5px;
+  row-gap: 2px;
+  column-gap: 2px;
+  width: fit-content;
 }
 
 .gridCell {
   background: #eee;
-  border: 1px solid #ccc;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 3px solid black;
+  width: 106px;
+  height: 106px;
+  border-radius: 4px;
 }
+
+.gridCell:hover {
+  background-color: #7a7a7a;
+  border-color: white;
 
 td {
   width: 100px;
@@ -79,25 +83,11 @@ td {
   background-repeat: no-repeat;
 }
 
-td:hover {
-  background-color: #7a7a7a;
-  border-color: white;
-}
-
 img {
   width: 100px;
   height: 100px;
   display: block;
   vertical-align: middle;
-}
-
-table {
-  table-layout: fixed;
-  width: 100%;
-  height: 620px;
-  margin: 0 auto;
-  padding: 0px;
-  border-style: none;
 }
 html {
   font-size: 12px;

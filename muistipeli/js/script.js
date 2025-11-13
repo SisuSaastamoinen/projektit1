@@ -186,5 +186,7 @@ function createBoard() {
     board.appendChild(gridCell);
     filenameSuffixIdx++;
   }
+  board.width = gameSizeRows * 100 + gameSizeRows * 6 + "px";
+  board.height = gameSizeCols * 100 + gameSizeCols * 6 + "px";
   created = true;
 }
