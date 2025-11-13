@@ -56,6 +56,21 @@ body {
   margin: 10px;
 }
 
+#boardContainer {
+  display: grid;
+  gap: 5px;
+}
+
+.gridCell {
+  background: #eee;
+  border: 1px solid #ccc;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 td {
   width: 100px;
   height: 100px;

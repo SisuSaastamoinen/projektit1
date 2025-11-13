@@ -45,7 +45,6 @@
  * weird behaviour currently with 6x6 and 4x6 grids
  */
 
-var board;
 var created = false;
 var gameSizeRows, gameSizeCols;
 var running = false;
@@ -162,38 +161,30 @@ function createBoard() {
 
   filenames = shuffleNames(filenames);
 
-  let pictureIdAppendix = 1;
   let filenameSuffixIdx = 0;
 
-  for (let i = 1; i <= gameSizeRows; i++) {
-    let newTr = document.createElement("tr");
-    newTr.setAttribute("id", "row" + i);
+  const board = document.getElementById("boardContainer");
+  board.style.gridTemplateRows = `repeat(${gameSizeRows}, 1fr)`;
+  board.style.gridTemplateColumns = `repeat(${gameSizeCols}, 1fr)`;
+  board.innerHTML = "";
 
-    for (let j = 1; j <= gameSizeCols; j++) {
-      let newTd = document.createElement("td");
-      newTd.style.backgroundImage =
-        "url(./resources/img/dev_icons/devdefault.jpg)";
-      newTd.setAttribute("id", "pic" + pictureIdAppendix);
-      newTd.addEventListener("click", onClickPicture);
+  for (let i = 1; i <= gameSizeCols * gameSizeRows; i++) {
+    let gridCell = document.createElement("div");
+    gridCell.style.backgroundImage =
+      "url(./resources/img/dev_icons/devdefault.jpg)";
+    gridCell.id = "pic" + i;
+    gridCell.className = "gridCell";
+    gridCell.addEventListener("click", onClickPicture);
 
-      let img = document.createElement("img");
-      img.src = "./resources/img/dev_icons/" + filenames[filenameSuffixIdx];
-      img.id = filenames[filenameSuffixIdx];
-      img.style.display = "none";
-      newTd.appendChild(img);
+    let img = document.createElement("img");
+    img.src = "./resources/img/dev_icons/" + filenames[filenameSuffixIdx];
+    img.id = filenames[filenameSuffixIdx];
+    img.style.display = "none";
 
-      pictureIdAppendix++;
-
-      filenameSuffixIdx++;
-
-      if (filenameSuffixIdx == gameSizeRows * gameSizeCols) {
-        filenameSuffixIdx = 1;
-      }
-      newTr.appendChild(newTd);
-    }
-    let boardContainer = document.getElementById("boardContainer");
-    boardContainer.appendChild(newTr);
+    console.log(filenameSuffixIdx);
+    gridCell.appendChild(img);
+    board.appendChild(gridCell);
+    filenameSuffixIdx++;
   }
-  board = boardContainer;
   created = true;
 }
