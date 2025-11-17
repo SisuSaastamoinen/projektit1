@@ -8,39 +8,38 @@
   </head>
   <body>
     <div class="container">
+      <h1 class="scrumHeader">Scrum Board</h1>
+      <form id="taskForm" onsubmit="return false;">
+        <div class="input-group">
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter a new task"
+            required
+          />
+          <button type="submit" id="addTaskButton" onclick="addTask()">
+            Add Task
+          </button>
+        </div>
+      </form>
       <div class="board">
         <!-- TO DO -->
         <section class="column">
           <h2 class="todoHeader">TO DO</h2>
-          <div class="column-body">
-            <div class="task" draggable="true">Task 1</div>
-            <div class="task" draggable="true">Task 2</div>
-            <div class="task" draggable="true">Task 3</div>
-          </div>
+          <div class="column-body" id="todoColumn"></div>
         </section>
         <!-- IN PROGRESS -->
         <section class="column">
           <h2 class="inProgressHeader">In progress</h2>
-          <div class="column-body">
-            <div class="task" draggable="true">Task 1</div>
-            <div class="task" draggable="true">Task 2</div>
-            <div class="task" draggable="true">Task 3</div>
-          </div>
+          <div class="column-body" id="inProgressColumn"></div>
         </section>
         <section class="column">
           <h2 class="testingHeader">Testing</h2>
-          <div class="column-body">
-            <div class="task" draggable="true">Task 1</div>
-            <div class="task" draggable="true">Task 2</div>
-            <div class="task" draggable="true">Task 3</div>
-          </div>
+          <div class="column-body" id="testingColumn"></div>
         </section>
         <section class="column">
-          <h2 class="productionHeader">Production ready</h2>
-          <div class="column-body">
-            <div class="task" draggable="true">Task 1</div>
-            <div class="task" draggable="true">Task 3</div>
-          </div>
+          <h2 class="productionHeader">Ready</h2>
+          <div class="column-body" id="productionColumn"></div>
         </section>
       </div>
     </div>
