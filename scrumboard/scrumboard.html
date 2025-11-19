@@ -26,23 +26,51 @@
       <div class="board">
         <!-- TO DO -->
         <section class="todoColumn column">
-          <h2 class="todoHeader">TO DO</h2>
+          <h2 class="todoHeader columnHeader">TO DO</h2>
           <div class="column-body" id="todoColumn"></div>
+          <button
+            class="columnButton"
+            id="toDoColumnButton"
+            onclick="clearTasksInColumn('todoColumn')"
+          >
+            Clear
+          </button>
         </section>
         <!-- IN PROGRESS -->
         <section class="inProgressColumn column">
-          <h2 class="inProgressHeader">In progress</h2>
+          <h2 class="inProgressHeader columnHeader">In progress</h2>
           <div class="column-body" id="inProgressColumn"></div>
+          <button
+            class="columnButton"
+            id="inProgressColumnButton"
+            onclick="clearTasksInColumn('inProgressColumn')"
+          >
+            Clear
+          </button>
         </section>
         <!-- TESTING -->
         <section class="testingColumn column">
-          <h2 class="testingHeader">Testing</h2>
+          <h2 class="testingHeader columnHeader">Testing</h2>
           <div class="column-body" id="testingColumn"></div>
+          <button
+            class="columnButton"
+            id="testingColumnButton"
+            onclick="clearTasksInColumn('testingColumn')"
+          >
+            Clear
+          </button>
         </section>
         <!-- IN PRODUCTION -->
         <section class="productionColumn column">
-          <h2 class="productionHeader">Ready</h2>
+          <h2 class="productionHeader columnHeader">Ready</h2>
           <div class="column-body" id="productionColumn"></div>
+          <button
+            class="columnButton"
+            id="productionColumnButton"
+            onclick="clearTasksInColumn('productionColumn')"
+          >
+            Clear
+          </button>
         </section>
       </div>
     </div>
