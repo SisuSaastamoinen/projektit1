@@ -1,11 +1,11 @@
 /* TODO
- * If todo item is dropped in between columns, it should return to its original position
  * Save the state of the board in local storage so that it persists on page reload
  * Add a feature to remove all tasks either from a column or from the entire board
  */
 
 generateTasks();
 addListeners();
+let parent = null;
 
 function addTask() {
   console.log("add task invoked");
@@ -20,6 +20,7 @@ function addTask() {
   taskElement.id = taskText.replace(" ", "").toLowerCase();
   taskElement.addEventListener("dragstart", dragStart);
   taskElement.addEventListener("click", clickFunction);
+  taskElement.addEventListener("dragend", dragEnd);
   todoColumn.appendChild(taskElement);
   taskInput.value = "";
 }
@@ -39,6 +40,7 @@ function generateTasks() {
     taskElement.id = task.replace(" ", "").toLowerCase();
     taskElement.addEventListener("dragstart", dragStart);
     taskElement.addEventListener("click", clickFunction);
+    taskElement.addEventListener("dragend", dragEnd);
     todoColumn.appendChild(taskElement);
   });
 }
@@ -71,10 +73,19 @@ function addListeners() {
 }
 
 function dragStart(event) {
+  parent = event.target.parentNode;
+  console.log("drag start", parent);
   event.dataTransfer.setData("text/plain", event.target.id);
   setTimeout(() => {
     event.target.classList.add("hide");
   }, 0);
+}
+
+function dragEnd(event) {
+  event.target.classList.remove("hide");
+  if (!event.target.parentNode.classList.contains("column-body")) {
+    parent.appendChild(event.target);
+  }
 }
 
 function dragOver(event) {
@@ -89,11 +100,14 @@ function dragLeave(event) {
 function drop(event) {
   const id = event.dataTransfer.getData("text/plain");
   const draggable = document.getElementById(id);
-
-  event.target.appendChild(draggable);
-
+  if (event.target.classList.contains("column-body")) {
+    event.target.appendChild(draggable);
+    event.target.classList.remove("drag-over");
+  } else {
+    parent.appendChild(draggable);
+    parent.classList.remove("drag-over");
+  }
   draggable.classList.remove("hide");
-  event.target.classList.remove("drag-over");
 }
 
 function dragEnter(event) {
