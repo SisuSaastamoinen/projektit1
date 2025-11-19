@@ -1,11 +1,11 @@
-generateTasks();
-addListeners();
-
 /* TODO
  * If todo item is dropped in between columns, it should return to its original position
  * Save the state of the board in local storage so that it persists on page reload
  * Add a feature to remove all tasks either from a column or from the entire board
  */
+
+generateTasks();
+addListeners();
 
 function addTask() {
   console.log("add task invoked");

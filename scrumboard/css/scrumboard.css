@@ -3,23 +3,11 @@ body {
   height: 100%;
   margin: 0;
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #f4f6f8;
+  background-color: #828181;
   text-align: center;
-  background-color: #5c5555;
   text-shadow: 1px 1px 2px black;
   color: white;
-}
-
-.todoColumn,
-.inProgressColumn,
-.testingColumn,
-.productionColumn {
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  transition: transform 0.2s ease;
+  font-size: 16px;
 }
 
 #taskInput {
@@ -32,22 +20,6 @@ body {
   background-color: lightgray;
   transition: background-color 0.3s ease;
   border: none;
-}
-
-.columnButton {
-  border: none;
-  height: 30px;
-  cursor: pointer;
-  background-color: #6e6767;
-  color: white;
-}
-
-.columnHeader {
-  font-size: 20px;
-  padding: 10px;
-  font-weight: bold;
-  background-color: #6e6767;
-  margin-top: 0;
 }
 
 #taskInput:hover {
@@ -71,6 +43,23 @@ body {
   background-color: #005a9e;
 }
 
+.board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  align-items: start;
+}
+
+.columnHeader {
+  font-size: 20px;
+  margin: 4px;
+  padding: 10px;
+  font-weight: bold;
+  background-color: #6e6767;
+  border-radius: 10px 10px 0px 0px;
+}
+
 .todoColumn {
   background-color: indianred;
 }
@@ -87,36 +76,33 @@ body {
   background-color: lightgreen;
 }
 
-.board {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-  padding: 20px;
-  align-items: start;
+.todoColumn,
+.inProgressColumn,
+.testingColumn,
+.productionColumn {
+  border-radius: 10px;
+  box-shadow: 0 6px 6px rgba(0.5, 0.5, 0.5, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.2s ease;
 }
 
 .todoColumn:hover,
 .inProgressColumn:hover,
 .testingColumn:hover,
 .productionColumn:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
+  box-shadow: 0 6px 6px rgba(0.5, 0.5, 0.5, 0.5);
 }
 
-.drag-over {
-  border: 2px dashed #0078d7;
-  background-color: #e6f0fa;
-  border-radius: 8px;
-  margin: 4px;
-}
-
-.task:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-}
-
-.hide {
-  display: none;
+.column-body {
+  padding: 4px;
+  margin-top: 0px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .task {
@@ -129,28 +115,31 @@ body {
   text-shadow: none;
 }
 
-.column-body {
-  padding: 10px;
-  margin-bottom: 10px;
-  margin-top: 0px;
-  min-height: 250px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.card {
-  background: #fafafa;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-}
-
-.card:hover {
-  background: #f0f0f0;
-  transform: scale(1.02);
+.task:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   cursor: pointer;
+}
+
+.columnButton {
+  border: none;
+  height: 30px;
+  border-radius: 0px 0px 10px 10px;
+  cursor: pointer;
+  margin: 4px;
+  color: white;
+  background-color: #8f8d8d;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+}
+
+.drag-over {
+  border: 2px dashed #0078d7;
+  background-color: #e6f0fa;
+  border-radius: 8px;
+  margin: 4px;
+}
+
+.hide {
+  display: none;
 }
