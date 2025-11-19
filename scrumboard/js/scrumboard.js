@@ -1,6 +1,11 @@
 /* TODO
  * Save the state of the board in local storage so that it persists on page reload
+ * Implement task prioritization within columns (e.g., high, medium, low)
+ * User authentication to allow multiple users to have their own boards
+ * Search functionality to find tasks by keywords
  * Add a feature to remove all tasks either from a column or from the entire board
+ * BUG: when dragging a task over another task, it applies the dashed border to the task and
+ * does not clear itself
  */
 
 generateTasks();
