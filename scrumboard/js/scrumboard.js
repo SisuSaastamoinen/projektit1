@@ -13,8 +13,7 @@ function addTask() {
   taskElement.draggable = true;
   taskElement.id = taskText.replace(" ", "").toLowerCase();
   taskElement.addEventListener("dragstart", dragStart);
-  todoColumn.appendChild(taskElement);
-  taskInput.value = "";
+    todoColumn.appendChild(taskElement);
 }
 
 function generateTasks() {
