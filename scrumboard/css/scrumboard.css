@@ -76,9 +76,6 @@ body {
   align-items: start;
 }
 
-.column:hover {
-}
-
 .todoColumn:hover,
 .inProgressColumn:hover,
 .testingColumn:hover,
