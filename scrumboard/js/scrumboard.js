@@ -13,11 +13,15 @@ function addTask() {
   taskElement.draggable = true;
   taskElement.id = taskText.replace(" ", "").toLowerCase();
   taskElement.addEventListener("dragstart", dragStart);
-    todoColumn.appendChild(taskElement);
+  todoColumn.appendChild(taskElement);
 }
 
 function generateTasks() {
-  const tasks = ["Task 1", "Task 2", "Task 3", "Task 4", "Task 5"];
+  const tasks = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  ];
   const todoColumn = document.querySelector("#todoColumn");
   tasks.forEach((task) => {
     const taskElement = document.createElement("div");
