@@ -1,6 +1,13 @@
 generateTasks();
 addListeners();
 
+/* TODO
+ * If todo item is dropped in between columns, it should return to its original position
+ * Implement edit and delete functionality for tasks
+ * Save the state of the board in local storage so that it persists on page reload
+ * Add a feature to assign priority levels to tasks and visually differentiate them
+ */
+
 function addTask() {
   console.log("add task invoked");
   const taskInput = document.querySelector("#taskInput");
@@ -14,6 +21,7 @@ function addTask() {
   taskElement.id = taskText.replace(" ", "").toLowerCase();
   taskElement.addEventListener("dragstart", dragStart);
   todoColumn.appendChild(taskElement);
+  taskInput.value = "";
 }
 
 function generateTasks() {
