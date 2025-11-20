@@ -4,8 +4,6 @@
  * User authentication to allow multiple users to have their own boards
  * Search functionality to find tasks by keywords
  * Add a feature to remove all tasks either from a column or from the entire board
- * BUG: when dragging a task over another task, it applies the dashed border to the task and
- * does not clear itself
  */
 
 generateTasks();
@@ -50,6 +48,31 @@ function generateTasks() {
   });
 }
 
+function deleteAllTasks() {
+  const taskElements = document.querySelectorAll(".task");
+  const confirmDelete = confirm("Delete all tasks on the board?");
+  if (!confirmDelete) {
+    return;
+  } else {
+    taskElements.forEach((task) => {
+      task.remove();
+    });
+  }
+}
+
+function deleteTasksInColumn(event) {
+  event.preventDefault();
+  const taskElements = event.currentTarget.parentNode.querySelectorAll(".task");
+  const confirmDelete = confirm("Delete all tasks in this column?");
+  if (!confirmDelete) {
+    return;
+  } else {
+    taskElements.forEach((task) => {
+      task.remove();
+    });
+  }
+}
+
 function clickFunction(event) {
   const taskElement = event.target;
   if (event.shiftKey) {
@@ -74,6 +97,10 @@ function addListeners() {
     column.addEventListener("dragleave", dragLeave);
     column.addEventListener("drop", drop);
     column.addEventListener("dragenter", dragEnter);
+  });
+  const deleteButtons = document.querySelectorAll(".deleteButton");
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", deleteTasksInColumn);
   });
 }
 
