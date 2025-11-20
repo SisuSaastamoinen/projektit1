@@ -135,7 +135,6 @@ body {
 }
 
 .drag-over {
-  border: 2px dashed #0078d7;
   background-color: #e6f0fa;
   border-radius: 8px;
   margin: 4px;

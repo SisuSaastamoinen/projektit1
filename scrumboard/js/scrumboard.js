@@ -1,4 +1,4 @@
-/* TODO
+/* TODO:
  * Save the state of the board in local storage so that it persists on page reload
  * Implement task prioritization within columns (e.g., high, medium, low)
  * User authentication to allow multiple users to have their own boards
@@ -95,7 +95,7 @@ function dragEnd(event) {
 
 function dragOver(event) {
   event.preventDefault();
-  event.target.classList.add("drag-over");
+  event.currentTarget.classList.add("drag-over");
 }
 
 function dragLeave(event) {
@@ -117,5 +117,5 @@ function drop(event) {
 
 function dragEnter(event) {
   event.preventDefault();
-  event.target.classList.add("drag-over");
+  event.currentTarget.classList.add("drag-over");
 }
