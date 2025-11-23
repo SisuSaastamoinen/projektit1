@@ -22,13 +22,25 @@ body {
   border: none;
 }
 
+#searchInput {
+  width: 50%;
+  padding: 10px;
+  border-radius: 40px;
+  font-size: 16px;
+  color: black;
+  background-color: lightgray;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
 #taskInput:hover {
   background-color: white;
   transition: background-color 0.3s ease;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-#addTaskButton {
+#addTaskButton,
+#deleteAllButton {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #0078d7;

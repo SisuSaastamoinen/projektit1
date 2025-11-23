@@ -3,7 +3,7 @@
  * Implement task prioritization within columns (e.g., high, medium, low)
  * User authentication to allow multiple users to have their own boards
  * Search functionality to find tasks by keywords
- * Add a feature to remove all tasks either from a column or from the entire board
+ * Add a feature to remove all tasks from the entire board
  */
 
 generateTasks();
@@ -102,6 +102,8 @@ function addListeners() {
   deleteButtons.forEach((button) => {
     button.addEventListener("click", deleteTasksInColumn);
   });
+  const deleteAllButton = document.querySelector("#deleteAllButton");
+  deleteAllButton.addEventListener("click", deleteAllTasks);
 }
 
 function dragStart(event) {
