@@ -1,9 +1,9 @@
 addListeners();
 
-let chosenElement = null;
-let computerChosenElement = null;
-let playerScore = 0;
-let computerScore = 0;
+let player_choice = null;
+let computer_choice = null;
+let player_score = 0;
+let computer_score = 0;
 const elements = ["rock", "paper", "scissors"];
 /* Message format:
  * key: playerChoice_computerChoice
@@ -25,8 +25,11 @@ const messages = {
 
 function onClick(event) {
   let element = event.currentTarget.dataset.element;
-  chosenElement = element;
-  computerChosenElement = getComputerChoice();
+  player_choice = element.innerText;
+  computer_choice = getComputerChoice();
+  const messageKey = `${player_choice}_${computer_choice}`;
+  const message = messages[messageKey];
+  document.querySelector(".game-result").innerText = message;
   alert("KSP.js is working!");
 }
 
@@ -39,5 +42,5 @@ function addListeners() {
 function getComputerChoice() {
   const randomIndex = Math.floor(Math.random() * 3);
   const chosen = elements[randomIndex];
-  return document.querySelector("." + chosen);
+  return document.querySelector("." + chosen).innerText;
 }
