@@ -12,10 +12,15 @@ const elements = ["rock", "paper", "scissors"];
 
 //prettier-ignore
 const messages = {
-	kivi_sakset:   "You win!",
-	kivi_kivi:		 "You lose!",
-	kivi_paperi:	 "It's a tie!",
-	paperi_sakset: "It's a tie!",
+	rock_paper:				 "You lose",
+	rock_scissors:     "You win!",
+	rock_rock:				 "Tie",
+	paper_scissors:		 "You lose!",
+	paper_rock:				 "You win!",
+	paper_paper:			 "Tie",
+	scissors_rock:		 "You lose!",
+	scissors_paper:		 "You win!",
+	scissors_scissors: "Tie",
 };
 
 function onClick(event) {
