@@ -21,57 +21,48 @@
 
 addListeners();
 
-let player_choice = null;
-let computer_choice = null;
 let player_score = 0;
 let computer_score = 0;
+const win = 1;
+const lose = -1;
 
 function onClick(event) {
-  const win = 1;
-  const lose = -1;
-  const tie = 0;
   /* NOTE:
-   * messages format:
+   * OUTCOMES format:
    * key: [player_choice]_[computer_choice]
-   * value: message to display
+   * value: win (1), lose (-1)
    */
-
   //prettier-ignore
-  const messages = {
+  const OUTCOMES = {
 	rock_paper:				 lose,
 	rock_scissors:     win,
-	rock_rock:				 tie,
 	paper_scissors:		 lose,
 	paper_rock:				 win,
-	paper_paper:			 tie,
 	scissors_rock:		 lose,
 	scissors_paper:		 win,
-	scissors_scissors: tie,
 };
   //prettier-ignore
-  const translations = {
+  const TRANSLATIONS = {
     rock:     "Kivi",
     paper:    "Paperi",
     scissors: "Sakset",
   };
-  const element = event.target.id;
-  player_choice = element;
-  computer_choice = getComputerChoice();
-  const messageKey = `${player_choice}_${computer_choice}`;
-  const message = messages[messageKey];
+  const player_choice = event.target.id; // rock, paper, or scissors
+  const computer_choice = getComputerChoice(); // rock, paper, or scissors
+  const outcome_key = `${player_choice}_${computer_choice}`;
+  const outcome = OUTCOMES[outcome_key];
   let message_to_display = "";
-  if (message === win) {
-    message_to_display = `${translations[player_choice]} on voimakkaampi kuin ${translations[computer_choice]}. Sinä voitit!`;
+  if (outcome === win) {
+    message_to_display = `${TRANSLATIONS[player_choice]} on voimakkaampi kuin ${TRANSLATIONS[computer_choice]}. Sinä voitit!`;
     player_score++;
-  } else if (message === lose) {
-    message_to_display = `${translations[computer_choice]} on voimakkaampi kuin ${translations[player_choice]}. Sinä hävisit!`;
+  } else if (outcome === lose) {
+    message_to_display = `${TRANSLATIONS[computer_choice]} on voimakkaampi kuin ${TRANSLATIONS[player_choice]}. Sinä hävisit!`;
     computer_score++;
   } else {
     message_to_display = "Tasapeli";
   }
   document.querySelector(".player-score").innerText = player_score + " :";
   document.querySelector(".computer-score").innerText = computer_score;
-  console.log(document.querySelector(".game-result"));
   document.querySelector("#game-result").innerText = message_to_display;
 }
 
@@ -83,7 +74,7 @@ function addListeners() {
 
 function getComputerChoice() {
   const elements = ["rock", "paper", "scissors"];
-  const randomIndex = Math.floor(Math.random() * 3);
-  const chosen = elements[randomIndex];
+  const random_index = Math.floor(Math.random() * 3);
+  const chosen = elements[random_index];
   return document.querySelector("#" + chosen).id;
 }
