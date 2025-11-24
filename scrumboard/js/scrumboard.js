@@ -1,12 +1,14 @@
+/* TODO:
+ * Save the state of the board in local storage so that it persists on page reload
+ * Implement task prioritization within columns (e.g., high, medium, low)
+ * User authentication to allow multiple users to have their own boards
+ * Search functionality to find tasks by keywords
+ * Add a feature to remove all tasks from the entire board
+ */
+
 generateTasks();
 addListeners();
-
-/* TODO
- * If todo item is dropped in between columns, it should return to its original position
- * Implement edit and delete functionality for tasks
- * Save the state of the board in local storage so that it persists on page reload
- * Add a feature to assign priority levels to tasks and visually differentiate them
- */
+let parent = null;
 
 function addTask() {
   console.log("add task invoked");
@@ -20,6 +22,8 @@ function addTask() {
   taskElement.draggable = true;
   taskElement.id = taskText.replace(" ", "").toLowerCase();
   taskElement.addEventListener("dragstart", dragStart);
+  taskElement.addEventListener("click", clickFunction);
+  taskElement.addEventListener("dragend", dragEnd);
   todoColumn.appendChild(taskElement);
   taskInput.value = "";
 }
@@ -38,8 +42,52 @@ function generateTasks() {
     taskElement.draggable = true;
     taskElement.id = task.replace(" ", "").toLowerCase();
     taskElement.addEventListener("dragstart", dragStart);
+    taskElement.addEventListener("click", clickFunction);
+    taskElement.addEventListener("dragend", dragEnd);
     todoColumn.appendChild(taskElement);
   });
+}
+
+function deleteAllTasks() {
+  const taskElements = document.querySelectorAll(".task");
+  const confirmDelete = confirm("Delete all tasks on the board?");
+  if (!confirmDelete) {
+    return;
+  } else {
+    taskElements.forEach((task) => {
+      task.remove();
+    });
+  }
+}
+
+function deleteTasksInColumn(event) {
+  event.preventDefault();
+  const taskElements = event.currentTarget.parentNode.querySelectorAll(".task");
+  const confirmDelete = confirm("Delete all tasks in this column?");
+  if (!confirmDelete) {
+    return;
+  } else {
+    taskElements.forEach((task) => {
+      task.remove();
+    });
+  }
+}
+
+function clickFunction(event) {
+  const taskElement = event.target;
+  if (event.shiftKey) {
+    const confirmDelete = confirm("Are you sure you want to delete this task?");
+    if (!confirmDelete) {
+      return;
+    } else {
+      taskElement.remove();
+    }
+  } else if (event.ctrlKey) {
+    const newText = prompt("Edit task:", taskElement.textContent);
+    if (newText !== null && newText.trim() !== "") {
+      taskElement.textContent = newText.trim();
+    }
+  }
 }
 
 function addListeners() {
@@ -50,18 +98,33 @@ function addListeners() {
     column.addEventListener("drop", drop);
     column.addEventListener("dragenter", dragEnter);
   });
+  const deleteButtons = document.querySelectorAll(".deleteButton");
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", deleteTasksInColumn);
+  });
+  const deleteAllButton = document.querySelector("#deleteAllButton");
+  deleteAllButton.addEventListener("click", deleteAllTasks);
 }
 
 function dragStart(event) {
+  parent = event.target.parentNode;
+  console.log("drag start", parent);
   event.dataTransfer.setData("text/plain", event.target.id);
   setTimeout(() => {
     event.target.classList.add("hide");
   }, 0);
 }
 
+function dragEnd(event) {
+  event.target.classList.remove("hide");
+  if (!event.target.parentNode.classList.contains("column-body")) {
+    parent.appendChild(event.target);
+  }
+}
+
 function dragOver(event) {
   event.preventDefault();
-  event.target.classList.add("drag-over");
+  event.currentTarget.classList.add("drag-over");
 }
 
 function dragLeave(event) {
@@ -71,14 +134,17 @@ function dragLeave(event) {
 function drop(event) {
   const id = event.dataTransfer.getData("text/plain");
   const draggable = document.getElementById(id);
-
-  event.target.appendChild(draggable);
-
+  if (event.target.classList.contains("column-body")) {
+    event.target.appendChild(draggable);
+    event.target.classList.remove("drag-over");
+  } else {
+    parent.appendChild(draggable);
+    parent.classList.remove("drag-over");
+  }
   draggable.classList.remove("hide");
-  event.target.classList.remove("drag-over");
 }
 
 function dragEnter(event) {
   event.preventDefault();
-  event.target.classList.add("drag-over");
+  event.currentTarget.classList.add("drag-over");
 }

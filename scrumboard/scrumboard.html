@@ -20,28 +20,47 @@
           <button type="submit" id="addTaskButton" onclick="addTask()">
             Add Task
           </button>
+          <input type="text" id="searchInput" placeholder="Search tasks" />
+          <p>shift-click to delete task, ctrl-click to edit</p>
         </div>
       </form>
       <div class="board">
         <!-- TO DO -->
         <section class="todoColumn column">
-          <h2 class="todoHeader">TO DO</h2>
+          <h2 class="todoHeader columnHeader">TO DO</h2>
           <div class="column-body" id="todoColumn"></div>
+          <button class="deleteButton" id="toDoColumnDeleteButton">
+            Clear
+          </button>
         </section>
         <!-- IN PROGRESS -->
         <section class="inProgressColumn column">
-          <h2 class="inProgressHeader">In progress</h2>
+          <h2 class="inProgressHeader columnHeader">In progress</h2>
           <div class="column-body" id="inProgressColumn"></div>
+          <button class="deleteButton" id="inProgressColumnDeleteButton">
+            Clear
+          </button>
         </section>
+        <!-- TESTING -->
         <section class="testingColumn column">
-          <h2 class="testingHeader">Testing</h2>
+          <h2 class="testingHeader columnHeader">Testing</h2>
           <div class="column-body" id="testingColumn"></div>
+          <button class="deleteButton" id="testingColumnDeleteButton">
+            Clear
+          </button>
         </section>
+        <!-- IN PRODUCTION -->
         <section class="productionColumn column">
-          <h2 class="productionHeader">Ready</h2>
+          <h2 class="productionHeader columnHeader">Ready</h2>
           <div class="column-body" id="productionColumn"></div>
+          <button class="deleteButton" id="productionColumnDeleteButton">
+            Clear
+          </button>
         </section>
       </div>
+      <button class="deleteAllButton" id="deleteAllButton">
+        Clear all tasks
+      </button>
     </div>
   </body>
   <script src="js/scrumboard.js"></script>
