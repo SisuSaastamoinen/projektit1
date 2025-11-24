@@ -25,6 +25,7 @@
 
 .game-element:hover {
   border-color: #dc143c;
+  background-color: darkgray;
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
