@@ -9,8 +9,9 @@ function onClick(event) {
   const win_msg = "You win!";
   const lose_msg = "You lose!";
   const tie_msg = "It's a tie!";
-  /* Message format:
-   * key: playerChoice_computerChoice
+  /* NOTE:
+   * messages format:
+   * key: [player_choice]_[computer_choice]
    * value: message to display
    */
 
@@ -29,9 +30,6 @@ function onClick(event) {
   let element = event.target.id;
   player_choice = element;
   computer_choice = getComputerChoice();
-  // console.log(
-  //   `Player choice: ${player_choice}, Computer choice: ${computer_choice}`,
-  // );
   const messageKey = `${player_choice}_${computer_choice}`;
   const message = messages[messageKey];
   document.querySelector(".game-result").innerText = message;
@@ -47,6 +45,5 @@ function getComputerChoice() {
   const elements = ["rock", "paper", "scissors"];
   const randomIndex = Math.floor(Math.random() * 3);
   const chosen = elements[randomIndex];
-  console.log(document.querySelector("#" + chosen));
   return document.querySelector("#" + chosen).id;
 }
