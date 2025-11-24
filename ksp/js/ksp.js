@@ -27,11 +27,20 @@ function onClick(event) {
 	scissors_paper:		 win_msg,
 	scissors_scissors: tie_msg,
 };
-  let element = event.target.id;
+  const element = event.target.id;
   player_choice = element;
   computer_choice = getComputerChoice();
   const messageKey = `${player_choice}_${computer_choice}`;
   const message = messages[messageKey];
+  if (message === win_msg) {
+    player_score++;
+  } else if (message === lose_msg) {
+    computer_score++;
+  }
+  document.querySelector(".player-score").innerText =
+    `Käyttäjä: ${player_score}`;
+  document.querySelector(".computer-score").innerText =
+    `Tietokone: ${computer_score}`;
   document.querySelector(".game-result").innerText = message;
 }
 
