@@ -1,6 +1,5 @@
 .game-container {
   font-size: 32px;
-  background-color: #f0f0f0;
   padding: 20px;
   margin: 30px;
   justify-content: center;
@@ -15,13 +14,19 @@
   border-radius: 360px;
 }
 
+.score-board {
+  font-size: 24px;
+  text-align: center;
+  background-color: #e0e0e0;
+}
+
 .game-element:hover {
   border-color: #dc143c;
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
-body{
-background-image: url(https://www.pbs.org/wnet/nature/files/2014/10/Monkey-Main-768x432.jpg);
+body {
+  background-image: url(https://www.pbs.org/wnet/nature/files/2014/10/Monkey-Main-768x432.jpg);
 }
 
 .clicked {

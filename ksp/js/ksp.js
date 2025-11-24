@@ -41,7 +41,8 @@ function onClick(event) {
     `Käyttäjä: ${player_score}`;
   document.querySelector(".computer-score").innerText =
     `Tietokone: ${computer_score}`;
-  document.querySelector(".game-result").innerText = message;
+  console.log(document.querySelector(".game-result"));
+  document.querySelector("#game-result").innerText = message;
 }
 
 function addListeners() {
