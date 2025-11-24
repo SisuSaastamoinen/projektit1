@@ -20,6 +20,10 @@
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
+body{
+background-image: url(https://www.pbs.org/wnet/nature/files/2014/10/Monkey-Main-768x432.jpg);
+}
+
 .clicked {
   background-color: #dc143c;
   color: #dc143c;
