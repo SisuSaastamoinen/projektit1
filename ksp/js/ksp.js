@@ -37,11 +37,11 @@ function onClick(event) {
   } else if (message === lose_msg) {
     computer_score++;
   }
-  document.querySelector(".player-score").innerText =
+  document.querySelector(".player-score").innerHTML =
     `Käyttäjä: ${player_score}`;
-  document.querySelector(".computer-score").innerText =
+  document.querySelector(".computer-score").innerHTML =
     `Tietokone: ${computer_score}`;
-  document.querySelector(".game-result").innerText = message;
+  document.querySelector(".game-result").innerHTML = message;
 }
 
 function addListeners() {
