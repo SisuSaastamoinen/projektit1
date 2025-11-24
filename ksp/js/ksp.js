@@ -4,7 +4,19 @@ let chosenElement = null;
 let computerChosenElement = null;
 let playerScore = 0;
 let computerScore = 0;
-let elements = ["rock", "paper", "scissors"];
+const elements = ["rock", "paper", "scissors"];
+/* Message format:
+ * key: playerChoice_computerChoice
+ * value: message to display
+ */
+
+//prettier-ignore
+const messages = {
+	kivi_sakset:   "You win!",
+	kivi_kivi:		 "You lose!",
+	kivi_paperi:	 "It's a tie!",
+	paperi_sakset: "It's a tie!",
+};
 
 function onClick(event) {
   let element = event.currentTarget.dataset.element;
@@ -20,6 +32,7 @@ function addListeners() {
 }
 
 function getComputerChoice() {
-  let randomIndex = Math.floor(Math.random() * 3);
-  return elements[randomIndex];
+  const randomIndex = Math.floor(Math.random() * 3);
+  const chosen = elements[randomIndex];
+  return document.querySelector("." + chosen);
 }
