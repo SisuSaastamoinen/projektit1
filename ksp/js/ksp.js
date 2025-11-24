@@ -27,9 +27,9 @@ let player_score = 0;
 let computer_score = 0;
 
 function onClick(event) {
-  const win_msg = "Voitit pelin!";
-  const lose_msg = "Hävisit pelin!";
-  const tie_msg = "Tasapeli!";
+  const win = 1;
+  const lose = -1;
+  const tie = 0;
   /* NOTE:
    * messages format:
    * key: [player_choice]_[computer_choice]
@@ -38,20 +38,20 @@ function onClick(event) {
 
   //prettier-ignore
   const messages = {
-	rock_paper:				 lose_msg,
-	rock_scissors:     win_msg,
-	rock_rock:				 tie_msg,
-	paper_scissors:		 lose_msg,
-	paper_rock:				 win_msg,
-	paper_paper:			 tie_msg,
-	scissors_rock:		 lose_msg,
-	scissors_paper:		 win_msg,
-	scissors_scissors: tie_msg,
+	rock_paper:				 lose,
+	rock_scissors:     win,
+	rock_rock:				 tie,
+	paper_scissors:		 lose,
+	paper_rock:				 win,
+	paper_paper:			 tie,
+	scissors_rock:		 lose,
+	scissors_paper:		 win,
+	scissors_scissors: tie,
 };
-
+  //prettier-ignore
   const translations = {
-    rock: "Kivi",
-    paper: "Paperi",
+    rock:     "Kivi",
+    paper:    "Paperi",
     scissors: "Sakset",
   };
   const element = event.target.id;
@@ -60,10 +60,10 @@ function onClick(event) {
   const messageKey = `${player_choice}_${computer_choice}`;
   const message = messages[messageKey];
   let message_to_display = "";
-  if (message === win_msg) {
+  if (message === win) {
     message_to_display = `${translations[player_choice]} on voimakkaampi kuin ${translations[computer_choice]}. Sinä voitit!`;
     player_score++;
-  } else if (message === lose_msg) {
+  } else if (message === lose) {
     message_to_display = `${translations[computer_choice]} on voimakkaampi kuin ${translations[player_choice]}. Sinä hävisit!`;
     computer_score++;
   } else {
