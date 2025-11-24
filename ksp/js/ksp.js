@@ -37,10 +37,8 @@ function onClick(event) {
   } else if (message === lose_msg) {
     computer_score++;
   }
-  document.querySelector(".player-score").innerText =
-    `Käyttäjä: ${player_score}`;
-  document.querySelector(".computer-score").innerText =
-    `Tietokone: ${computer_score}`;
+  document.querySelector(".player-score").innerText = player_score;
+  document.querySelector(".computer-score").innerText = computer_score;
   console.log(document.querySelector(".game-result"));
   document.querySelector("#game-result").innerText = message;
 }
