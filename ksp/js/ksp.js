@@ -1,3 +1,24 @@
+/**
+ * ksp.js - Rock Paper Scissors game logic
+ *
+ * This script implements the core functionality for a Rock Paper Scissors game:
+ * - Handles user input via click events on game elements.
+ * - Randomly selects the computer's choice.
+ * - Determines the outcome (win, lose, tie) and updates scores.
+ * - Displays results and score updates in the DOM.
+ *
+ * Functions:
+ * - addListeners(): Attaches click event listeners to game elements.
+ * - onClick(event): Handles a player's move, determines the result, updates scores and UI.
+ * - getComputerChoice(): Randomly selects and returns the computer's move.
+ *
+ * Global Variables:
+ * - player_choice: Stores the player's current selection.
+ * - computer_choice: Stores the computer's current selection.
+ * - player_score: Tracks the player's score.
+ * - computer_score: Tracks the computer's score.
+ */
+
 addListeners();
 
 let player_choice = null;
