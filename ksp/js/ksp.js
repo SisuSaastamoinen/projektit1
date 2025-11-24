@@ -6,9 +6,9 @@ let player_score = 0;
 let computer_score = 0;
 
 function onClick(event) {
-  const win_msg = "You win!";
-  const lose_msg = "You lose!";
-  const tie_msg = "It's a tie!";
+  const win_msg = "Voitit pelin!";
+  const lose_msg = "Hävisit pelin!";
+  const tie_msg = "Tasapeli!";
   /* NOTE:
    * messages format:
    * key: [player_choice]_[computer_choice]
