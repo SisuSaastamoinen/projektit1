@@ -61,7 +61,7 @@ function onClick(event) {
   } else {
     message_to_display = "Tasapeli";
   }
-  document.querySelector(".player-score").innerText = player_score + " :";
+  document.querySelector(".player-score").innerText = player_score;
   document.querySelector(".computer-score").innerText = computer_score;
   document.querySelector("#game-result").innerText = message_to_display;
 }

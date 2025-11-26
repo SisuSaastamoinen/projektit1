@@ -9,16 +9,19 @@
   <body>
     <!-- prettier-ignore -->
     <header class="score-board">
-      <span  id="player">Käyttäjä</span>
-      <var   id="player-score"    class ="player-score">0 : </var>
+      <span  id="player" class="player">Käyttäjä</span>
+      <span  id="score" class ="score">
+      <var   id="player-score"    class ="player-score">0</var>
+        <span class="separator">:</span>
       <var   id="computer-score"  class="computer-score">0</var>
-      <span  id="computer">Tietokone</span>
+      </span>
+      <span  id="computer" class="computer">Tietokone</span>
     <h3 class="game-result" id="game-result"></h3>
     </header>
     <div class="game-container">
-      <div class="game-element" id="rock">Kivi</div>
-      <div class="game-element" id="paper">Paperi</div>
-      <div class="game-element" id="scissors">Sakset</div>
+      <div class="game-element" id="rock"></div>
+      <div class="game-element" id="paper"></div>
+      <div class="game-element" id="scissors"></div>
     </div>
   </body>
   <script src="js/ksp.js"></script>
