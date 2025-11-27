@@ -22,13 +22,17 @@ body {
   padding: 20px;
 }
 
-.input-container,
-.input-header {
+.input-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   flex-direction: column;
+}
+
+.input-header {
+  text-align: center;
+  width: 100%;
 }
 
 .storage-input {
