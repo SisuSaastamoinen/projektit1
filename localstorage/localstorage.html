@@ -27,6 +27,7 @@
               class="storage-input"
               id="last-name"
               placeholder="Anna sukunimi"
+              required="true"
             />
           </div>
           <div class="input-field-container">
@@ -76,9 +77,16 @@
             <button class="storage-button" id="load-storage-button">
               Load from Local Storage
             </button>
+            <label for "input-search-query">Anna hakuavain:</label>
+            <input type="text" id="input-search-query" />
             <button class="storage-button" id="clear-storage-button">
               Clear Local Storage
             </button>
+            <button class="storage-button" id="delete-specific-button">
+              Delete Specific Item
+            </button>
+            <label for="input-delete-key">Poista tiedot avaimen perusteella:</label>
+            <input type="text" id="input-delete-key" />
           </div>
         </div>
       </div>
