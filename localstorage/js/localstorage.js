@@ -1,4 +1,3 @@
-const userData = {};
 
 function clearUserData() {
   localStorage.clear();
@@ -18,7 +17,7 @@ function saveUserData() {
     document.getElementById("last-name"),
     JSON.stringify(userData),
   );
-}
+};
 
 function addListeners() {
   document
