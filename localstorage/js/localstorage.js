@@ -1,16 +1,18 @@
+const userData = {};
+
 function clearUserData() {
   localStorage.clear();
 }
 
 function saveUserData() {
-  const userData = {
-    Etunimi: document.getElementById("first-name").value,
-    Sukunimi: document.getElementById("last-name").value,
-    Osoite: document.getElementById("address").value,
-    Postinumero: document.getElementById("postcode").value,
-    Toimipaikka: document.getElementById("post-area").value,
-    Puhelin: document.getElementById("phone").value,
-    Email: document.getElementById("email").value,
+  userData = {
+    etunimi: document.getElementById("first-name").value,
+    sukunimi: document.getElementById("last-name").value,
+    osoite: document.getElementById("address").value,
+    postinumero: document.getElementById("postcode").value,
+    toimipaikka: document.getElementById("post-area").value,
+    puhelin: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
   };
   localStorage.setItem(
     document.getElementById("last-name"),
@@ -18,14 +20,10 @@ function saveUserData() {
   );
 }
 
-function onClick(event) {
-  saveUserData();
-}
-
 function addListeners() {
-  document.querySelectorAll(".storage-button").forEach((button) => {
-    button.addEventListener("click", onClick);
-  });
+  document
+    .querySelector("#save-storage-button")
+    .addEventListener("click", saveUserData);
 }
 
 function loadUserData() {
