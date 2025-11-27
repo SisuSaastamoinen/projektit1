@@ -1,3 +1,5 @@
+let userData = {};
+addListeners();
 
 function clearUserData() {
   localStorage.clear();
@@ -14,10 +16,13 @@ function saveUserData() {
     email: document.getElementById("email").value,
   };
   localStorage.setItem(
-    document.getElementById("last-name"),
+    document.getElementById("last-name").value,
     JSON.stringify(userData),
   );
-};
+  console.log(`User data-JS object: ${userData}
+userData as JSON: ${JSON.stringify(userData)}.`);
+  console.log("Data saved to localStorage");
+}
 
 function addListeners() {
   document
