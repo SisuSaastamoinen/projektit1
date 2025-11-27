@@ -22,10 +22,6 @@ function onClick(event) {
   saveUserData();
 }
 
-function saveUserData() {
-  //TODO
-}
-
 function addListeners() {
   document.querySelectorAll(".storage-button").forEach((button) => {
     button.addEventListener("click", onClick);
