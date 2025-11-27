@@ -84,6 +84,7 @@ ul {
   background-color: #4caf50;
   color: white;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .storage-button-input {
@@ -101,7 +102,6 @@ li {
   margin: 0;
   padding: 0;
   font-size: 20px;
-  font-weight: bold;
 }
 
 .storage-button:hover {
