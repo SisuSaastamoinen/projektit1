@@ -1,7 +1,6 @@
-
 function clearUserData() {
-    localStorage.clear()
-};
+  localStorage.clear();
+}
 
 function saveUserData() {
     const userData = {
