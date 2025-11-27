@@ -9,9 +9,9 @@ function saveUserData() {
         Osoite: document.getElementById("address").value,
         Postinumero: document.getElementById("postcode").value,
         Toimipaikka: document.getElementById("post-area").value,
-        Puhelin: 
-
-    }
+        Puhelin: document.getElementById("phone").value,
+        Email: document.getElementById("email").value
+    };
     localStorage.setItem(document.getElementById("last-name"), JSON.stringify(userData));
 };
 
