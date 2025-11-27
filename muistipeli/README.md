@@ -39,4 +39,4 @@ https://app.moqups.com/Yzhm4pEXYnrWzuciqJbWLopkgR7mtZs9/view/page/ad64222d5
 
 Projekt board:
 Niko: js, mockup
-Sisu: html, jss
+Sisu: html, css
