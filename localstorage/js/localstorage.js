@@ -7,20 +7,21 @@ function clearUserData() {
 
 function saveUserData() {
   userData = {
-    etunimi: document.getElementById("first-name").value,
-    sukunimi: document.getElementById("last-name").value,
-    osoite: document.getElementById("address").value,
+    firstName: document.getElementById("first-name").value,
+    lastName: document.getElementById("last-name").value,
+    address: document.getElementById("address").value,
     postinumero: document.getElementById("postcode").value,
-    toimipaikka: document.getElementById("post-area").value,
-    puhelin: document.getElementById("phone").value,
+    postArea: document.getElementById("post-area").value,
+    phone: document.getElementById("phone").value,
     email: document.getElementById("email").value,
   };
   localStorage.setItem(
     document.getElementById("last-name").value,
     JSON.stringify(userData),
   );
-  console.log(`User data-JS object: ${userData}
-userData as JSON: ${JSON.stringify(userData)}.`);
+  console.log(
+    `User data-JS object: ${userData} userData as JSON: ${JSON.stringify(userData)}.`,
+  );
   console.log("Data saved to localStorage");
 }
 
@@ -41,5 +42,6 @@ function loadUserData() {
   const lUser = JSON.parse(
     localStorage.getItem(document.getElementById("input-search-query")),
   );
+  document.querySelector("#phone").value = lUser.phone;
   console.log(lUser);
 }
