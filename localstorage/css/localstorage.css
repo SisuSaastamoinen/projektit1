@@ -1,0 +1,46 @@
+body {
+  text-align: center;
+}
+
+.main-content-wrapper {
+  font-size: 24px;
+  background-color: darkgray;
+  padding: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.storage-input {
+  width: 300px;
+  text-align: center;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  margin: 0;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.storage-input:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.storage-button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.storage-button:hover {
+  background-color: #45a049;
+}

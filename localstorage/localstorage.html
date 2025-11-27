@@ -7,71 +7,84 @@
     <link href="css/localstorage.css" rel="stylesheet" />
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="./localstorage.html">Local Storage</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
     <main>
       <div class="main-content-wrapper">
-        <h1>Anna tietoa niin tallennan ne paikalliselle koneelle</h1>
+        <h2>Anna tietoa niin tallennan ne paikalliselle koneelle</h2>
         <div class="input-container" id="input-container">
-          <div class="first-name-container">
-            <input type="text" id="first-name" placeholder="Anna etunimi" />
+          <div class="input-field-container">
+            <input
+              type="text"
+              class="storage-input"
+              id="first-name"
+              placeholder="Anna etunimi"
+            />
           </div>
-          <div class="last-name-container">
-            <input type="text" id="last-name" placeholder="Anna sukunimi" />
+          <div class="input-field-container">
+            <input
+              type="text"
+              class="storage-input"
+              id="last-name"
+              placeholder="Anna sukunimi"
+            />
           </div>
-          <div class="address-container">
-            <input type="text" id="address" placeholder="Anna osoite" />
+          <div class="input-field-container">
+            <input
+              type="text"
+              class="storage-input"
+              id="address"
+              placeholder="Anna osoite"
+            />
           </div>
-          <div class="postcode-container">
-            <input type="text" id="postcode" placeholder="Anna postinumero" />
+          <div class="input-field-container">
+            <input
+              type="text"
+              class="storage-input"
+              id="postcode"
+              placeholder="Anna postinumero"
+            />
           </div>
-          <div class="post-area-container">
+          <div class="input-field-container">
             <input
               type="text"
               id="post-area"
+              class="storage-input"
               placeholder="Anna postitoimipaikka"
             />
           </div>
-          <div class="phone-container">
-            <input type="text" id="phone" placeholder="Anna puhelinnumero" />
+          <div class="input-field-container">
+            <input
+              type="text"
+              class="storage-input"
+              id="phone"
+              placeholder="Anna puhelinnumero"
+            />
           </div>
-          <div class="email-container">
-            <input type="text" id="email" placeholder="Anna sähköposti" />
+          <div class="input-button-container">
+            <input
+              type="text"
+              class="storage-input"
+              id="email"
+              placeholder="Anna sähköposti"
+            />
           </div>
-          <div class="save-button-container">
-            <button class="save-button" id="saveButton">
+          <div class="input-button-container">
+            <button class="storage-button" id="save-storage-button">
               Save to Local Storage
             </button>
           </div>
-          <div class="load-button-container">
-            <button class="load-button" id="loadButton">
+          <div class="input-button-container">
+            <button class="storage-button" id="load-storage-button">
               Load from Local Storage
             </button>
           </div>
-          <div class="clear-button-container">
-            <button class="clear-button" id="clearButton">
+          <div class="input-button-container">
+            <button class="storage-button" id="clear-storage-button">
               Clear Local Storage
             </button>
           </div>
         </div>
       </div>
     </main>
-    <footer>
-      <nav>
-        <ul>
-          <li>
-            <a href="./aboutpage.html">About</a>
-          </li>
-        </ul>
-      </nav>
-    </footer>
   </body>
   <script src="js/localstorage.js"></script>
 </html>
