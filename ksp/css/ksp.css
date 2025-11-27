@@ -39,6 +39,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 10px;
+  border-bottom: 2px solid var(--ghost-white);
 }
 
 .separator {
@@ -90,8 +91,8 @@ body {
 .game-element {
   border: 3px solid var(--muted-olive);
   border-radius: 100%;
-  min-width: 160px;
-  min-height: 160px;
+  min-width: 260px;
+  min-height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,18 +134,19 @@ body {
   width: 100view-width;
   display: block;
   text-align: center;
+  text-shadow: 2px 2px var(--charcoal-brown);
 }
 
 .game-element:hover {
-  border-color: var(--dusty-mauve);
-  box-shadow: 0 0 10px var(--charcoal-brown);
+  border-color: var(--yellow-green);
+  box-shadow: 0 0 10px var(--yellow-green);
+}
+
+.computer-choice {
+  border: 3px solid var(--dusty-mauve);
+  box-shadow: 0 0 10px var(--dusty-mauve);
 }
 
 body {
   background-color: var(--charcoal-brown);
-}
-
-.clicked {
-  background-color: var(--dusty-mauve);
-  color: var(--dusty-mauve);
 }

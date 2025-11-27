@@ -76,5 +76,10 @@ function getComputerChoice() {
   const elements = ["rock", "paper", "scissors"];
   const random_index = Math.floor(Math.random() * 3);
   const chosen = elements[random_index];
+  const chosen_element = document.querySelector("#" + chosen);
+  chosen_element.classList.add("computer-choice");
+  setTimeout(() => {
+    chosen_element.classList.remove("computer-choice");
+  }, 500);
   return document.querySelector("#" + chosen).id;
 }
