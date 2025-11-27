@@ -17,34 +17,51 @@
       </nav>
     </header>
     <main>
-      <h1>Anna tietoa niin tallennan ne paikalliselle koneelle</h1>
-      <div>
-        <input type="text" id="first-name" placeholder="Anna etunimi" />
+      <div class="main-content-wrapper">
+        <h1>Anna tietoa niin tallennan ne paikalliselle koneelle</h1>
+        <div class="input-container" id="input-container">
+          <div class="first-name-container">
+            <input type="text" id="first-name" placeholder="Anna etunimi" />
+          </div>
+          <div class="last-name-container">
+            <input type="text" id="last-name" placeholder="Anna sukunimi" />
+          </div>
+          <div class="address-container">
+            <input type="text" id="address" placeholder="Anna osoite" />
+          </div>
+          <div class="postcode-container">
+            <input type="text" id="postcode" placeholder="Anna postinumero" />
+          </div>
+          <div class="post-area-container">
+            <input
+              type="text"
+              id="post-area"
+              placeholder="Anna postitoimipaikka"
+            />
+          </div>
+          <div class="phone-container">
+            <input type="text" id="phone" placeholder="Anna puhelinnumero" />
+          </div>
+          <div class="email-container">
+            <input type="text" id="email" placeholder="Anna sähköposti" />
+          </div>
+          <div class="save-button-container">
+            <button class="save-button" id="saveButton">
+              Save to Local Storage
+            </button>
+          </div>
+          <div class="load-button-container">
+            <button class="load-button" id="loadButton">
+              Load from Local Storage
+            </button>
+          </div>
+          <div class="clear-button-container">
+            <button class="clear-button" id="clearButton">
+              Clear Local Storage
+            </button>
+          </div>
+        </div>
       </div>
-      <div>
-        <input type="text" id="address" placeholder="Anna osoite" />
-      </div>
-      <div>
-        <input type="text" id="address" placeholder="Anna osoite" />
-      </div>
-      <div>
-        <input type="text" id="postcode" placeholder="Anna postinumero" />
-      </div>
-      <div>
-        <input type="text" id="post-area" placeholder="Anna postitoimipaikka" />
-      </div>
-      <div>
-        <input type="text" id="phone" placeholder="Anna puhelinnumero" />
-      </div>
-      <div>
-        <input type="text" id="email" placeholder="Anna sähköposti" />
-      </div>
-      <button class="save-button" id="saveButton">Save to Local Storage</button>
-      <button class="load-button" id="loadButton">
-        Load from Local Storage
-      </button>
-      <button class="clear-button" id="clearButton">Clear Local Storage</button>
-      <p id="output"></p>
     </main>
     <footer>
       <nav>
