@@ -74,19 +74,29 @@
             <button class="storage-button" id="save-storage-button">
               Save to Local Storage
             </button>
-            <button class="storage-button" id="load-storage-button">
-              Load from Local Storage
-            </button>
-            <label for "input-search-query">Anna hakuavain:</label>
-            <input type="text" id="input-search-query" />
             <button class="storage-button" id="clear-storage-button">
               Clear Local Storage
             </button>
-            <button class="storage-button" id="delete-specific-button">
-              Delete Specific Item
-            </button>
-            <label for="input-delete-key">Poista tiedot avaimen perusteella:</label>
-            <input type="text" id="input-delete-key" />
+            <div class="search-button-container">
+              <button class="storage-button" id="load-storage-button">
+                Search Local Storage
+              </button>
+              <input
+                type="text"
+                class="storage-button-input"
+                id="input-search-query"
+              />
+            </div>
+            <div class="delete-specific-button-container">
+              <button class="storage-button" id="delete-specific-button">
+                Delete Specific Item
+              </button>
+              <input
+                type="text"
+                class="storage-button-input"
+                id="input-delete-key"
+              />
+            </div>
           </div>
         </div>
       </div>

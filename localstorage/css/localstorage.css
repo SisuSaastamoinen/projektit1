@@ -30,6 +30,16 @@ body {
   flex-direction: column;
 }
 
+.search-button-container,
+.delete-specific-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
 .input-header {
   text-align: center;
   width: 100%;
@@ -62,12 +72,21 @@ input:focus::placeholder {
 
 .storage-button {
   margin-top: 10px;
+  width: 150px;
   padding: 10px;
   border: none;
   border-radius: 10px;
   background-color: #4caf50;
   color: white;
   cursor: pointer;
+}
+
+.storage-button-input {
+  width: 140px;
+  border: none;
+  height: 20px;
+  border-radius: 5px;
+  color: black;
 }
 
 .storage-button:hover {
