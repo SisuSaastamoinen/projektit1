@@ -1,14 +1,14 @@
-function clearStorage() {
-  localStorage.clear();
+
+function clearUserData() {
+    localStorage.clear()
+};
+
+function saveUserData() {
+    const userData = {}
+    localStorage.setItem(document.getElementById("last-name"), JSON.stringify(userData));
 }
-function addItem() {
-  const userData = {
-    first_name: "",
-    last_name: "",
-  };
-  const firstNameValue = document.querySelector("#first-name").value;
-  const firstNameKey = "first_name";
-  userData[firstNameKey] = firstNameValue;
-  const userStringified = JSON.stringify(userData);
-  JSON.parse(userStringified);
+
+function loadUserData() {
+   const lUser = JSON.parse(localStorage.getItem(document.getElementById("input-search-query")));
+    console.log(lUser);
 }
