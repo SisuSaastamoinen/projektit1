@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="css/localstorage.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="./localstorage.html">Local Storage</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Anna tietoa niin tallennan ne paikalliselle koneelle</h1>
+      <br />
+      <label for="first-name"></label><br />
+      <input type="text" id="first-name" placeholder="Anna etunimi" /><br />
+      <label for="last-name"></label><br />
+      <input type="text" id="last-name" placeholder="Anna sukunimi" /><br />
+      <label for="address"></label><br />
+      <input type="text" id="address" placeholder="Anna osoite" /><br />
+      <label for="postcode"></label><br />
+      <input type="text" id="postcode" placeholder="Anna postinumero" /><br />
+      <label for="post-area"></label><br />
+      <input
+        type="text"
+        id="post-area"
+        placeholder="Anna postitoimipaikka"
+      /><br />
+      <label for="phone"></label><br />
+      <input type="text" id="phone" placeholder="Anna puhelinnumero" /><br />
+      <label for="email"></label><br />
+      <input type="text" id="email" placeholder="Anna sähköposti" /><br />
+      <button class="save-button" id="saveButton">Save to Local Storage</button
+      ><br />
+      <button class="load-button" id="loadButton">
+        <br />
+        Load from Local Storage<br /></button
+      ><br />
+      <button class="clear-button" id="clearButton">Clear Local Storage</button
+      ><br />
+      <p id="output"></p>
+    </main>
+    <footer>
+      <nav>
+        <ul>
+          <li>
+            <a href="./aboutpage.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+  <script src="js/localstorage.js"></script>
+</html>
