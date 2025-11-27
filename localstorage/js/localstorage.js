@@ -28,6 +28,13 @@ function addListeners() {
   document
     .querySelector("#save-storage-button")
     .addEventListener("click", saveUserData);
+  document
+    .querySelector("#delete-specific-button")
+    .addEventListener("click", removeSpecificItem);
+}
+
+function removeSpecificItem() {
+  localStorage.removeItem(document.querySelector("#input-delete-key").value);
 }
 
 function loadUserData() {
@@ -36,4 +43,3 @@ function loadUserData() {
   );
   console.log(lUser);
 }
-
