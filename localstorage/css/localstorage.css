@@ -1,15 +1,33 @@
+html,
 body {
-  text-align: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: darkgray;
 }
 
 .main-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
   font-size: 24px;
-  background-color: darkgray;
   padding: 20px;
 }
 
-.input-container {
+.input-container,
+.input-header {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   flex-direction: column;
 }
 
@@ -20,6 +38,13 @@ body {
   border: none;
   border-radius: 10px;
   margin: 0;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 input:focus::placeholder {
