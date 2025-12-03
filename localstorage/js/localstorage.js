@@ -6,14 +6,15 @@ function clearUserData() {
 }
 
 function saveUserData() {
+  //prettier-ignore
   userData = {
-    firstName: document.getElementById("first-name").value,
-    lastName: document.getElementById("last-name").value,
-    address: document.getElementById("address").value,
+    firstName:	 document.getElementById("first-name").value,
+    lastName:		 document.getElementById("last-name").value,
+    address:		 document.getElementById("address").value,
     postinumero: document.getElementById("postcode").value,
-    postArea: document.getElementById("post-area").value,
-    phone: document.getElementById("phone").value,
-    email: document.getElementById("email").value,
+    postArea:		 document.getElementById("post-area").value,
+    phone:			 document.getElementById("phone").value,
+    email:			 document.getElementById("email").value,
   };
   localStorage.setItem(
     document.getElementById("last-name").value,
