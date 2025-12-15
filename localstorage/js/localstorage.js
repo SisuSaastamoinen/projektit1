@@ -33,6 +33,12 @@ function addListeners() {
   document
     .querySelector("#delete-specific-button")
     .addEventListener("click", removeSpecificItem);
+  document
+    .querySelector("#clear-storage-button")
+    .addEventListener("click", clearUserData);
+  document
+    .querySelector("#load-storage-button")
+    .addEventListener("click", loadUserData);
 }
 
 function removeSpecificItem() {
@@ -41,8 +47,7 @@ function removeSpecificItem() {
 
 function loadUserData() {
   const lUser = JSON.parse(
-    localStorage.getItem(document.getElementById("input-search-query")),
+    localStorage.getItem(document.getElementById("input-search-query").value),
   );
-  document.querySelector("#phone").value = lUser.phone;
   console.log(lUser);
 }
